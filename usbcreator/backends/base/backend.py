@@ -2,6 +2,12 @@ import usbcreator.install
 from usbcreator import misc
 import logging
 import os
+import sys
+
+if sys.version_info[0] < 3:
+    import ConfigParser as configparser
+else:
+    import configparser
 
 def abstract(func):
     def not_implemented(*args):
@@ -9,12 +15,46 @@ def abstract(func):
                                   func.__name__)
     return not_implemented
 
+class Config:
+    def __init__(self, backend):
+        self.file = os.path.expanduser('~/.usb-creator.ini')
+        self.folder = os.path.expanduser('~')
+        self.section = 'images'
+        self.parser = configparser.SafeConfigParser()
+        self.backend = backend
+
+    def load(self):
+        p = self.parser
+        p.read(self.file)
+        try:
+            folder = p.get('DEFAULT', 'folder')
+            self.folder = folder
+        except:
+            python_govno = 'Yes!'
+        if p.has_section(self.section):
+            for f in p.items(self.section):
+                self.backend.add_image(f[1])
+
+    def save(self):
+        p = self.parser
+        p.set('DEFAULT', 'folder', self.folder)
+        s = self.section
+        if p.has_section(s):
+            p.remove_section(s)
+        p.add_section(s)
+        n = 0
+        for image_file in self.backend.sources.keys():
+            p.set(s, str(n), image_file)
+        with open(self.file, 'w') as configfile:
+            p.write(configfile)
+
 class Backend:
     def __init__(self):
         self.sources = {}
         self.targets = {}
         self.current_source = None
         self.install_thread = None
+        self.config = Config(self)
 
     # Public methods.
 
@@ -22,6 +62,10 @@ class Backend:
         logging.debug('Backend told to add: %s' % filename)
         filename = os.path.abspath(os.path.expanduser(filename))
         if not os.path.isfile(filename):
+            return
+        if filename in self.sources:
+            logging.warn('Source already added.')
+            # TODO evand 2009-07-27: Scroll to source and select.
             return
 
         extension = os.path.splitext(filename)[1]
@@ -83,7 +127,7 @@ class Backend:
             if misc.callable(self.target_removed_cb):
                 self.target_removed_cb(device)
             self.targets.pop(device)
-    
+
     # Signals.
 
     def source_added_cb(self, drive):

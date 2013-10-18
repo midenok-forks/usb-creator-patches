@@ -17,7 +17,6 @@ import os
 
 import gettext
 import logging
-import ConfigParser
 
 from gi.repository import GObject
 from gi.repository import GLib
@@ -49,32 +48,6 @@ def thread_wrap(func):
         finally:
             Gdk.threads_leave()
     return wrap
-
-class Config:
-    def __init__(self, frontend):
-        self.file = os.path.expanduser('~/.usb-creator-gtk.ini')
-        self.section = 'images'
-        self.parser = ConfigParser.SafeConfigParser()
-        self.frontend = frontend
-    
-    def read_config(self):
-        p = self.parser
-        p.read(self.file)
-        if p.has_section(self.section):
-            for f in p.items(self.section):
-                self.frontend.backend.add_image(f[1])
-                
-    def write_config(self):
-        p = self.parser
-        s = self.section
-        if p.has_section(s):
-            p.remove_section(s)
-        p.add_section(s)
-        n = 0
-        for image_file in self.frontend.backend.sources.keys():
-            p.set(s, str(n), image_file)
-        with open(self.file, 'wb') as configfile:
-            p.write(configfile)
 
 class GtkFrontend(Frontend):
     @classmethod
@@ -151,7 +124,7 @@ class GtkFrontend(Frontend):
         self.backend.retry_cb = self.retry
         self.backend.target_changed_cb = self.update_target
         self.backend.format_failed_cb = self.format_failed
-        
+
         # Pulse state.
         self.pulsing = False
 
@@ -178,7 +151,7 @@ class GtkFrontend(Frontend):
             #self.button_help.connect('clicked', lambda x: Gtk.show_uri(self.button_help.get_screen(),
             #                                                           'ghelp:usb-creator',
             #                                                           Gtk.get_current_event_time()))
-            
+
         self.setup_sources_treeview()
         self.setup_targets_treeview()
         self.persist_vbox.set_sensitive(False)
@@ -202,9 +175,9 @@ class GtkFrontend(Frontend):
         if not persistent:
             self.persist_disabled.set_active(True)
             self.persist_vbox.hide()
-        
-        self.config = Config(self)
-        self.config.read_config()
+
+        self.config = self.backend.config
+        self.config.load()
         self.window.show()
         selection = self.source_treeview.get_selection()
         selection.connect('changed', self.selection_changed_source)
@@ -221,9 +194,9 @@ class GtkFrontend(Frontend):
         except KeyboardInterrupt:
             self.quit()
         Gdk.threads_leave()
-    
+
     def __del__(self):
-        self.config.write_config()
+        self.config.save()
 
     def add_timeout(self, interval, func, *args):
         '''Add a new timer for function 'func' with optional arguments. Wraps a
@@ -654,13 +627,14 @@ class GtkFrontend(Frontend):
 
         if not self.fastboot_mode:
             _add_filter('*.iso', _('CD Images'))
-        _add_filter('*.img', _('Disk Images'))            
+        _add_filter('*.img', _('Disk Images'))
 
-        folder = os.path.expanduser('~')
-        chooser.set_current_folder(folder)
+
+        chooser.set_current_folder(self.config.folder)
         response = chooser.run()
         if response == Gtk.ResponseType.OK:
             filename = chooser.get_filename()
+            self.config.folder = chooser.get_current_folder()
             chooser.destroy()
             self.backend.add_image(filename)
         elif response == Gtk.ResponseType.CANCEL:
@@ -670,7 +644,7 @@ class GtkFrontend(Frontend):
         source = self.get_source()
         target = self.get_target()
         persist = self.get_persistence()
-        if self.fastboot_mode and not misc.check_eula():    
+        if self.fastboot_mode and not misc.check_eula():
             if self.show_eula() == Gtk.ResponseType.CANCEL:
                 return
         # TODO evand 2009-07-31: Make these the default values in the
