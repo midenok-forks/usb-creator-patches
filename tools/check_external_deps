@@ -1,0 +1,49 @@
+#!/bin/sh
+set -e
+
+VER="2.6.2"
+MD5="4bca00171aa614b4886b889290c4fed9"
+PYTHONURL="http://www.python.org/ftp/python/$VER/python-$VER.msi"
+OUT="/tmp/python$VER.msi"
+
+P7VER="457"
+P7VERH="4.57"
+P7ZIPURL="http://heanet.dl.sourceforge.net/sourceforge/sevenzip/7z$P7VER.msi"
+P7ZIPMD5="3f4a68083169bf7d10e542a3e89f5895"
+P7OUT="/tmp/7z$P7VER.msi"
+
+LZMAURL="http://heanet.dl.sourceforge.net/sourceforge/sevenzip/LZMA%20SDK/$PZVERH/lzma$P7VER.tar.bz2"
+LZMAOUT="/tmp/lzma$P7VER.tar.bz2"
+LZMAMD5="fc7a12a396ade1772e959604d6eb31e1"
+
+if ! type wine >/dev/null 2>&1; then
+	echo "You need to install WINE to run the test suite."
+	exit 1
+fi
+if [ ! -e "$PWD/wine/drive_c/Python26/python.exe" ]; then
+	echo "Downloading and installing Python for Windows $VER"
+	rm -rf "$PWD/wine" || true
+	mkdir "$PWD/wine"
+	wget $PYTHONURL -O "$OUT" >/dev/null 2>&1
+	echo "$MD5  $OUT" | md5sum -c - >/dev/null
+	WINEPREFIX=$PWD/wine wine msiexec /qn -i $OUT >/dev/null 2>&1
+fi
+
+if [ ! -e "$PWD/wine/drive_c/Program Files/7-Zip/7z.exe" ]; then
+	echo "Downloading and installing 7-Zip for Windows $P7VERH"
+	wget $P7ZIPURL -O "$P7OUT" >/dev/null 2>&1
+	echo "$P7ZIPMD5  $P7OUT" | md5sum -c - >/dev/null
+	WINEPREFIX=$PWD/wine wine msiexec /qn -i $P7OUT >/dev/null 2>&1
+fi
+
+[ -d "$PWD/build" ] || mkdir "$PWD/build"
+if [ ! -e "$PWD/build/lzma/C/7zCrc.c" ]; then
+	echo "Downloading and extracting LZMA SDK $P7VERH"
+	mkdir -p "$PWD/build/7z"
+	# Poor attempt at caching.
+	if [ ! -e "$LZMAOUT" ]; then
+		wget $LZMAURL -O "$LZMAOUT" >/dev/null 2>&1
+	fi
+	echo "$LZMAMD5  $LZMAOUT" | md5sum -c - >/dev/null
+	tar jxf "$LZMAOUT" -C "$PWD/build/7z"
+fi

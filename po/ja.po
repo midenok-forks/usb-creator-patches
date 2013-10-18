@@ -1,0 +1,536 @@
+# Japanese translation for usb-creator
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the usb-creator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: usb-creator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-28 12:46+0000\n"
+"PO-Revision-Date: 2010-04-20 15:41+0000\n"
+"Last-Translator: Kentaro Kazuhama <kazken3@gmail.com>\n"
+"Language-Team: Japanese <ja@li.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-05-03 03:20+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:1
+msgid "Install the bootloader"
+msgstr "ブートローダのインストール"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:2
+msgid "System policy prevents installing the bootloader"
+msgstr "システムポリシーによりブートローダをインストールできません"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:3
+msgid "Format the device"
+msgstr "デバイスのフォーマット"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:4
+msgid "System policy prevents formatting this device"
+msgstr "システムポリシーによりこのデバイスをフォーマットできません"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:5
+msgid "Image the device"
+msgstr "デバイスのイメージ化"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:6
+msgid "System policy prevents writing a disk image to this device"
+msgstr "システムポリシーによりこのデバイスにディスクイメージを書き込めません"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:7
+msgid "Mount a device"
+msgstr "デバイスのマウント"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:8
+msgid "System policy prevents mounting"
+msgstr "システムポリシーによりマウントできません"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:1
+#: .././desktop/usb-creator-kde.desktop.in.h:1
+msgid "Startup Disk Creator"
+msgstr "スタートアップ・ディスクの作成"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:2
+#: .././desktop/usb-creator-kde.desktop.in.h:2
+msgid "Create a startup disk using a CD or disc image"
+msgstr "CD またはディスクイメージを使ってスタートアップ・ディスクを作成します"
+
+#. set title of progress window (same as gtk frontend)
+#: .././usbcreator/frontends/kde/frontend.py:189
+#: .././usbcreator/frontends/winui/install_window.py:23
+#: .././gui/usbcreator-gtk.ui.h:8
+msgid "Installing"
+msgstr "インストールしています"
+
+#. TODO evand 2009-07-28: Better error message.
+#: .././usbcreator/frontends/kde/frontend.py:217
+#: .././usbcreator/frontends/gtk/frontend.py:730
+#: .././usbcreator/frontends/winui/frontend.py:87
+msgid "Installation failed."
+msgstr "インストールに失敗しました。"
+
+#: .././usbcreator/frontends/kde/frontend.py:379
+#: .././usbcreator/frontends/gtk/frontend.py:471
+msgid "The device is not large enough to hold this image."
+msgstr "デバイスにこのイメージを保存するには十分な容量がありません。"
+
+#: .././usbcreator/frontends/kde/frontend.py:381
+#: .././usbcreator/frontends/gtk/frontend.py:473
+msgid "There is not enough free space for this image."
+msgstr "このイメージを書き込むための十分な容量がありません。"
+
+#: .././usbcreator/frontends/kde/frontend.py:384
+msgid "The device needs to be formatted for use."
+msgstr ""
+
+#. TODO evand 2009-07-28: The list itself needs to be moved into the
+#. base frontend.
+#. To be displayed as a list of file type filters.
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:623
+#: .././usbcreator/frontends/winui/frontend.py:181
+msgid "CD Images"
+msgstr "CD イメージ"
+
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:624
+#: .././usbcreator/frontends/winui/frontend.py:182
+msgid "Disk Images"
+msgstr "ディスクイメージ"
+
+#: .././usbcreator/frontends/kde/frontend.py:433
+msgid "Starting up"
+msgstr "開始しています"
+
+#: .././usbcreator/frontends/kde/frontend.py:442
+msgid "You must select both source image and target device first."
+msgstr "最初に元のイメージとターゲットとするデバイスを選択する必要があります。"
+
+#: .././usbcreator/frontends/kde/frontend.py:469
+#: .././usbcreator/frontends/winui/frontend.py:73
+msgid ""
+"The installation is complete.  You may now reboot your computer with this "
+"device inserted to try or install Ubuntu."
+msgstr ""
+"インストールが完了しました。Ubuntu を試したりインストールするのであれば、この"
+"デバイスを差し込んだ状態のまま今すぐコンピュータを再起動してください。"
+
+#: .././usbcreator/frontends/kde/frontend.py:480
+msgid "Retry?"
+msgstr "再試行しますか?"
+
+#: .././usbcreator/frontends/kde/frontend.py:492
+#: .././gui/usbcreator-gtk.ui.h:9
+msgid "Quit the installation?"
+msgstr "インストールを終了しますか？"
+
+#: .././usbcreator/frontends/kde/frontend.py:493
+#: .././gui/usbcreator-gtk.ui.h:10
+msgid "Do you really want to quit the installation now?"
+msgstr "本当にインストールを終了しますか？"
+
+#. TODO information about the device we're about to format.
+#: .././usbcreator/frontends/kde/frontend.py:524
+#: .././usbcreator/frontends/gtk/frontend.py:791
+msgid "Are you sure you want to erase the entire disk?"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:133
+#, fuzzy
+msgid "To run Ubuntu on a portable device, it needs to be set up first."
+msgstr ""
+"リムーバブルディスクから Ubuntu を試したりインストールするには、スタートアッ"
+"プ・ディスクとして設定する必要があります。"
+
+#: .././usbcreator/frontends/gtk/frontend.py:134
+#, fuzzy
+msgid "Source disc image (.img):"
+msgstr "インストール元ディスクイメージ(.iso)またはCD:"
+
+#: .././usbcreator/frontends/gtk/frontend.py:135
+#, fuzzy
+msgid "Target device:"
+msgstr "デバイスのイメージ化"
+
+#: .././usbcreator/frontends/gtk/frontend.py:136
+msgid "Ubuntu Core Installer"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:137
+#, fuzzy
+msgid "Install Ubuntu Core"
+msgstr "インストールが完了しました"
+
+#: .././usbcreator/frontends/gtk/frontend.py:138
+msgid "Legal"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:369
+msgid "CD-Drive/Image"
+msgstr "CD ドライブ/イメージ"
+
+#: .././usbcreator/frontends/gtk/frontend.py:371
+#: .././usbcreator/frontends/winui/main_dialog.py:27
+msgid "Image"
+msgstr "イメージ"
+
+#: .././usbcreator/frontends/gtk/frontend.py:385
+#: .././usbcreator/frontends/winui/main_dialog.py:28
+msgid "OS Version"
+msgstr "OSバージョン"
+
+#: .././usbcreator/frontends/gtk/frontend.py:395
+#: .././usbcreator/frontends/winui/main_dialog.py:29
+msgid "Size"
+msgstr "サイズ"
+
+#: .././usbcreator/frontends/gtk/frontend.py:508
+#: .././usbcreator/frontends/gtk/frontend.py:796
+#, fuzzy
+msgid "Erasing..."
+msgstr "終了しています..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:513
+#: .././gui/usbcreator-gtk.ui.h:16
+msgid "Erase Disk"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:567
+#: .././usbcreator/frontends/winui/main_dialog.py:36
+msgid "Device"
+msgstr "デバイス"
+
+#: .././usbcreator/frontends/gtk/frontend.py:584
+#: .././usbcreator/frontends/winui/main_dialog.py:37
+msgid "Label"
+msgstr "ラベル"
+
+#: .././usbcreator/frontends/gtk/frontend.py:594
+#: .././usbcreator/frontends/winui/main_dialog.py:38
+msgid "Capacity"
+msgstr "ディスク容量"
+
+#: .././usbcreator/frontends/gtk/frontend.py:604
+#: .././usbcreator/frontends/winui/main_dialog.py:39
+msgid "Free Space"
+msgstr "空き容量"
+
+#. TODO evand 2009-07-31: Make these the default values in the
+#. GtkBuilder file.
+#: .././usbcreator/frontends/gtk/frontend.py:645
+#: .././usbcreator/frontends/winui/install_window.py:28
+msgid "Starting up..."
+msgstr "起動しています..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:674
+#: .././usbcreator/frontends/winui/frontend.py:155
+#, python-format
+msgid "%d%% complete (%dm%ss remaining)"
+msgstr "%d%% 完了 (残り %d 分 %s 秒)"
+
+#: .././usbcreator/frontends/gtk/frontend.py:678
+#: .././usbcreator/frontends/winui/frontend.py:159
+#, python-format
+msgid "%d%% complete"
+msgstr "%d%% 完了"
+
+#: .././usbcreator/frontends/gtk/frontend.py:758
+#, fuzzy
+msgid "Installation is complete. Your device is rebooting into Ubuntu Core."
+msgstr ""
+"インストールが完了しました。Ubuntu を試したりインストールするのであれば、この"
+"デバイスを差し込んだ状態のまま今すぐコンピュータを再起動してください。"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:21
+#: .././gui/usbcreator-gtk.ui.h:12
+msgid ""
+"To try or install Ubuntu from a removable disk, it needs to be set up as a "
+"startup disk."
+msgstr ""
+"リムーバブルディスクから Ubuntu を試したりインストールするには、スタートアッ"
+"プ・ディスクとして設定する必要があります。"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:24
+#: .././gui/usbcreator-gtk.ui.h:13
+msgid "Source disc image (.iso) or CD:"
+msgstr "インストール元ディスクイメージ(.iso)またはCD:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:32
+#: .././gui/usbcreator-gtk.ui.h:14
+msgid "Other..."
+msgstr "その他..."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:34
+msgid "Removable disk to use:"
+msgstr "使用するリムーバブルディスク"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:42
+#: .././gui/usbcreator-gtk.ui.h:17
+msgid "When starting up from this disk, documents and settings will be:"
+msgstr "このUSBディスクから起動した際の、作成した文章や設定の扱い:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:45
+msgid "Stored in reserved space"
+msgstr "未使用のスペースに保存する"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:46
+#: .././gui/usbcreator-gtk.ui.h:19
+msgid "How much:"
+msgstr "確保する容量:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:52
+#: .././gui/usbcreator-gtk.ui.h:20
+msgid "Discarded on shutdown, unless you save them elsewhere"
+msgstr "シャットダウン時に、全ての変更を破棄する"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:56
+msgid "Quit"
+msgstr "終了"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:58
+msgid "Make startup disk"
+msgstr "スタートアップ・ディスクの作成"
+
+#: .././usbcreator/frontends/winui/install_window.py:32
+msgid "&Cancel"
+msgstr "キャンセル(&C)"
+
+#: .././usbcreator/frontends/winui/frontend.py:76
+msgid "Installation complete"
+msgstr "インストールが完了しました"
+
+#: .././usbcreator/frontends/winui/frontend.py:82
+msgid "Installation failed"
+msgstr "インストールに失敗しました"
+
+#: .././usbcreator/frontends/winui/frontend.py:183
+msgid "All"
+msgstr "すべて"
+
+#: .././usbcreator/frontends/winui/frontend.py:193
+#: .././gui/usbcreator-gtk.ui.h:11
+msgid "Make Startup Disk"
+msgstr "スタートアップ・ディスクの作成"
+
+#: .././usbcreator/install.py:140
+#, python-format
+msgid "The extension \"%s\" is not supported."
+msgstr "拡張子 \"%s\" はサポートされていません。"
+
+#: .././usbcreator/install.py:145
+#, python-format
+msgid "Missing matching \"%s\" for source image %s."
+msgstr ""
+
+#: .././usbcreator/install.py:161
+#, python-format
+msgid ""
+"An uncaught exception was raised:\n"
+"%s"
+msgstr ""
+"捕捉されなかった例外が発生しました：\n"
+"%s"
+
+#: .././usbcreator/install.py:177
+#, python-format
+msgid ""
+"Insufficient free space to write the image:\n"
+"%s\n"
+"\n"
+"(%d MB) > %s (%d MB)"
+msgstr ""
+"イメージを書き込むのに十分な容量がありません。\n"
+"%s\n"
+"\n"
+"(%d MB) > %s (%d MB)"
+
+#: .././usbcreator/install.py:230
+msgid "Installing the bootloader..."
+msgstr "ブートローダをインストールしています..."
+
+#: .././usbcreator/install.py:231
+msgid "Failed to install the bootloader."
+msgstr "ブートローダのインストールに失敗しました。"
+
+#: .././usbcreator/install.py:261
+msgid "Modifying configuration..."
+msgstr "設定を変更しています..."
+
+#. Failure here probably means the source was not really an Ubuntu
+#. image and did not have the files we wanted to move, see
+#. <https://bugs.launchpad.net/launchpad-code/+bug/513432>
+#: .././usbcreator/install.py:272
+#, python-format
+msgid ""
+"Could not move syslinux files in \"%s\": %s. Maybe \"%s\" is not an Ubuntu "
+"image?"
+msgstr ""
+"\"%s\": %s にある syslinux ファイルを移動できませんでした。\"%s\" は Ubuntu "
+"イメージでない可能性があります。"
+
+#: .././usbcreator/install.py:343
+msgid "Creating a persistence file..."
+msgstr "永続的ファイルを作成しています..."
+
+#: .././usbcreator/install.py:346
+msgid "Creating an ext2 filesystem in the persistence file..."
+msgstr "永続的ファイルにext2ファイルシステムを作成しています..."
+
+#: .././usbcreator/install.py:358
+msgid "Finishing..."
+msgstr "終了しています..."
+
+#. TODO evand 2009-09-02: Disabled until we can find a cross-platform
+#. way of determining dd progress.
+#. self.initialize_progress_thread()
+#: .././usbcreator/install.py:381
+msgid "Writing disk image..."
+msgstr "ディスクイメージを書き込んでいます..."
+
+#: .././usbcreator/install.py:382
+#, python-format
+msgid "Could not write the disk image (%s) to the device (%s)."
+msgstr "ディスクイメージ (%s) をデバイス (%s) に書き込めません。"
+
+#: .././usbcreator/install.py:412
+msgid "Erasing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:415
+msgid "Erasing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:418
+msgid "Flashing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:421
+msgid "Flashing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:426
+#, fuzzy
+msgid "Rebooting device..."
+msgstr "ファイルを削除しています..."
+
+#. Clear.
+#. Some of the code in this function was copied from Ubiquity's
+#. scripts/install.py
+#: .././usbcreator/install.py:448 .././usbcreator/install.py:561
+msgid "Removing files..."
+msgstr "ファイルを削除しています..."
+
+#: .././usbcreator/install.py:479 .././usbcreator/install.py:584
+msgid "Copying files..."
+msgstr "ファイルをコピーしています..."
+
+#: .././usbcreator/install.py:508
+msgid "md5 checksums do not match."
+msgstr "md5チェックサムが一致しません。"
+
+#: .././usbcreator/install.py:537
+#, fuzzy
+msgid "Installing the EFI bootloader..."
+msgstr "ブートローダをインストールしています..."
+
+#: .././usbcreator/install.py:538
+#, fuzzy
+msgid "Failed to install the EFI bootloader."
+msgstr "ブートローダのインストールに失敗しました。"
+
+#. TODO evand 2009-07-23: Catch exceptions around the
+#. user removing the flash drive mid-write.  Give the
+#. user the option of selecting the re-inserted disk
+#. from a drop down list and continuing.
+#. TODO evand 2009-07-23: Fail more gracefully.
+#: .././usbcreator/install.py:656
+#, python-format
+msgid "Could not read from %s"
+msgstr "%s から読み込めません"
+
+#: .././usbcreator/install.py:681
+msgid "Checksums do not match.  Retry?"
+msgstr "チェックサムが一致しません。再試行しますか？"
+
+#: .././usbcreator/install.py:685
+msgid "Checksums do not match."
+msgstr "チェックサムが一致しません。"
+
+#: .././gui/usbcreator-gtk.ui.h:1
+msgid "Legal Notice"
+msgstr ""
+
+#: .././gui/usbcreator-gtk.ui.h:2
+msgid "Installation Failed"
+msgstr "インストールに失敗しました"
+
+#: .././gui/usbcreator-gtk.ui.h:3
+#, fuzzy
+msgid ""
+"The installation failed.  Please see ~/.cache/usb-creator.log for more "
+"details.\n"
+msgstr ""
+"インストールに失敗しました。エラーの詳細は ~/.usbcreator.log を参照してくださ"
+"い。\n"
+
+#: .././gui/usbcreator-gtk.ui.h:5
+msgid "Installation Complete"
+msgstr "インストールが完了しました"
+
+#: .././gui/usbcreator-gtk.ui.h:6
+msgid "Test Disk"
+msgstr ""
+
+#: .././gui/usbcreator-gtk.ui.h:7
+msgid ""
+"Installation is complete.  You may now run Ubuntu on other computers by "
+"booting them with this drive inserted."
+msgstr ""
+"インストールが完了しました。このドライブを差し込んで起動することで、他のコン"
+"ピュータ上でUbuntuを立ち上げることができます。"
+
+#: .././gui/usbcreator-gtk.ui.h:15
+msgid "Disk to use:"
+msgstr "使用するディスク："
+
+#: .././gui/usbcreator-gtk.ui.h:18
+msgid "Stored in reserved extra space"
+msgstr "データ保存領域を確保し、行われた変更を保存する"
+
+#: .././main.py:37
+msgid "Please run this program as an administrator to continue."
+msgstr "続けるには、このプログラムを管理者として実行してください。"
+
+#: .././main.py:38
+msgid "Administrator privileges required"
+msgstr "管理者権限が必要です"
+
+#: .././main.py:55
+#, python-format
+msgid ""
+"An unhandled exception occurred:\n"
+"%s"
+msgstr ""
+"未処理例外が発生しました：\n"
+"%s"
+
+#: .././main.py:56
+msgid "Error"
+msgstr "エラー"
+
+#~ msgid "Please insert a CD or select 'Other...'."
+#~ msgstr "CDを挿入するか、「その他」を選択してください。"
+
+#~ msgid "0.0 MB"
+#~ msgstr "0.0 MB"
+
+#~ msgid "Cancel"
+#~ msgstr "キャンセル"
+
+#~ msgid "Format"
+#~ msgstr "フォーマット"

@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+from twisted.internet import glib2reactor
+from twisted.trial.runner import TrialRunner
+from twisted.trial.reporter import TreeReporter
+import os, sys, unittest
+
+def _collect_tests():
+    r = []
+    for f in os.listdir(os.path.dirname(__file__)):
+        if f.endswith('.py') and 'windows' not in f:
+            r.append(f[:-3])
+    return r
+glib2reactor.install()
+runner = TrialRunner(reporterFactory=TreeReporter)
+tests = _collect_tests()
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+suite = unittest.TestLoader().loadTestsFromNames(tests)
+success = runner.run(suite).wasSuccessful()
+if not success:
+    sys.exit(1)
+else:
+    sys.exit(0)

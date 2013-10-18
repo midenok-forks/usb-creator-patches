@@ -1,0 +1,543 @@
+# Catalan translations for usb-creator package
+# Traduccions al català del paquet «usb-creator».
+# Copyright (C) 2009 THE usb-creator'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the usb-creator package.
+# David Planella <david.planella@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: usb-creator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-28 12:46+0000\n"
+"PO-Revision-Date: 2010-04-21 22:10+0000\n"
+"Last-Translator: David Planella <Unknown>\n"
+"Language-Team: Catalan <ubuntu-l10n-ca@lists.ubuntu.com>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-05-03 03:20+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:1
+msgid "Install the bootloader"
+msgstr "Instaŀla el carregador d'arrencada"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:2
+msgid "System policy prevents installing the bootloader"
+msgstr "Les normes del sistema impedeixen instaŀlar el carregador d'arrencada"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:3
+msgid "Format the device"
+msgstr "Formata el dispositiu"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:4
+msgid "System policy prevents formatting this device"
+msgstr "Les normes del sistema impedeixen formatar el dispositiu"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:5
+msgid "Image the device"
+msgstr "Crea una imatge del dispositiu"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:6
+msgid "System policy prevents writing a disk image to this device"
+msgstr ""
+"Les normes del sistema impedeixen escriure una imatge de disc al dispositiu"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:7
+msgid "Mount a device"
+msgstr "Munta un dispositiu"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:8
+msgid "System policy prevents mounting"
+msgstr "Les normes del sistema impedeixen el muntatge"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:1
+#: .././desktop/usb-creator-kde.desktop.in.h:1
+msgid "Startup Disk Creator"
+msgstr "Creador de discos d'arrencada"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:2
+#: .././desktop/usb-creator-kde.desktop.in.h:2
+msgid "Create a startup disk using a CD or disc image"
+msgstr "Creeu un disc d'arrencada a partir d'un CD o imatge de disc"
+
+#. set title of progress window (same as gtk frontend)
+#: .././usbcreator/frontends/kde/frontend.py:189
+#: .././usbcreator/frontends/winui/install_window.py:23
+#: .././gui/usbcreator-gtk.ui.h:8
+msgid "Installing"
+msgstr "S'està instal·lant"
+
+#. TODO evand 2009-07-28: Better error message.
+#: .././usbcreator/frontends/kde/frontend.py:217
+#: .././usbcreator/frontends/gtk/frontend.py:730
+#: .././usbcreator/frontends/winui/frontend.py:87
+msgid "Installation failed."
+msgstr "La instal·lació ha fallat."
+
+#: .././usbcreator/frontends/kde/frontend.py:379
+#: .././usbcreator/frontends/gtk/frontend.py:471
+msgid "The device is not large enough to hold this image."
+msgstr "Aquest dispositiu no és prou gran per a contenir aquesta imatge."
+
+#: .././usbcreator/frontends/kde/frontend.py:381
+#: .././usbcreator/frontends/gtk/frontend.py:473
+msgid "There is not enough free space for this image."
+msgstr "No hi ha prou espai lliure per a aquesta imatge."
+
+#: .././usbcreator/frontends/kde/frontend.py:384
+msgid "The device needs to be formatted for use."
+msgstr ""
+
+#. TODO evand 2009-07-28: The list itself needs to be moved into the
+#. base frontend.
+#. To be displayed as a list of file type filters.
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:623
+#: .././usbcreator/frontends/winui/frontend.py:181
+msgid "CD Images"
+msgstr "Imatges de CD"
+
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:624
+#: .././usbcreator/frontends/winui/frontend.py:182
+msgid "Disk Images"
+msgstr "Imatges de disc"
+
+#: .././usbcreator/frontends/kde/frontend.py:433
+msgid "Starting up"
+msgstr "S'està iniciant"
+
+#: .././usbcreator/frontends/kde/frontend.py:442
+msgid "You must select both source image and target device first."
+msgstr ""
+"Primer heu de seleccionar la font de la imatge i el dispositiu de destinació."
+
+#: .././usbcreator/frontends/kde/frontend.py:469
+#: .././usbcreator/frontends/winui/frontend.py:73
+msgid ""
+"The installation is complete.  You may now reboot your computer with this "
+"device inserted to try or install Ubuntu."
+msgstr ""
+"Ha finalitzat la instaŀlació. Ara podeu reiniciar l'ordinador amb aquest "
+"dispositiu inserit per a provar o instaŀlar l'Ubuntu."
+
+#: .././usbcreator/frontends/kde/frontend.py:480
+msgid "Retry?"
+msgstr "Voleu tornar-ho a intentar?"
+
+#: .././usbcreator/frontends/kde/frontend.py:492
+#: .././gui/usbcreator-gtk.ui.h:9
+msgid "Quit the installation?"
+msgstr "Voleu sortir de la instal·lació?"
+
+#: .././usbcreator/frontends/kde/frontend.py:493
+#: .././gui/usbcreator-gtk.ui.h:10
+msgid "Do you really want to quit the installation now?"
+msgstr "Segur que voleu sortir de la instal·lació?"
+
+#. TODO information about the device we're about to format.
+#: .././usbcreator/frontends/kde/frontend.py:524
+#: .././usbcreator/frontends/gtk/frontend.py:791
+msgid "Are you sure you want to erase the entire disk?"
+msgstr "Segur que voleu esborrar tot el disc?"
+
+#: .././usbcreator/frontends/gtk/frontend.py:133
+#, fuzzy
+msgid "To run Ubuntu on a portable device, it needs to be set up first."
+msgstr ""
+"Per a provar o instal·lar l'Ubuntu des d'un disc extraïble, cal configurar-"
+"lo com a disc d'arrencada."
+
+#: .././usbcreator/frontends/gtk/frontend.py:134
+#, fuzzy
+msgid "Source disc image (.img):"
+msgstr "Imatge de disc (.iso) o CD d'origen:"
+
+#: .././usbcreator/frontends/gtk/frontend.py:135
+#, fuzzy
+msgid "Target device:"
+msgstr "Crea una imatge del dispositiu"
+
+#: .././usbcreator/frontends/gtk/frontend.py:136
+msgid "Ubuntu Core Installer"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:137
+#, fuzzy
+msgid "Install Ubuntu Core"
+msgstr "S'ha completat la instal·lació"
+
+#: .././usbcreator/frontends/gtk/frontend.py:138
+msgid "Legal"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:369
+msgid "CD-Drive/Image"
+msgstr "Unitat de CD/imatge"
+
+#: .././usbcreator/frontends/gtk/frontend.py:371
+#: .././usbcreator/frontends/winui/main_dialog.py:27
+msgid "Image"
+msgstr "Imatge"
+
+#: .././usbcreator/frontends/gtk/frontend.py:385
+#: .././usbcreator/frontends/winui/main_dialog.py:28
+msgid "OS Version"
+msgstr "Versió del SO"
+
+#: .././usbcreator/frontends/gtk/frontend.py:395
+#: .././usbcreator/frontends/winui/main_dialog.py:29
+msgid "Size"
+msgstr "Mida"
+
+#: .././usbcreator/frontends/gtk/frontend.py:508
+#: .././usbcreator/frontends/gtk/frontend.py:796
+#, fuzzy
+msgid "Erasing..."
+msgstr "S'està acabant..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:513
+#: .././gui/usbcreator-gtk.ui.h:16
+msgid "Erase Disk"
+msgstr "Esborra el disc"
+
+#: .././usbcreator/frontends/gtk/frontend.py:567
+#: .././usbcreator/frontends/winui/main_dialog.py:36
+msgid "Device"
+msgstr "Dispositiu"
+
+#: .././usbcreator/frontends/gtk/frontend.py:584
+#: .././usbcreator/frontends/winui/main_dialog.py:37
+msgid "Label"
+msgstr "Etiqueta"
+
+#: .././usbcreator/frontends/gtk/frontend.py:594
+#: .././usbcreator/frontends/winui/main_dialog.py:38
+msgid "Capacity"
+msgstr "Capacitat"
+
+#: .././usbcreator/frontends/gtk/frontend.py:604
+#: .././usbcreator/frontends/winui/main_dialog.py:39
+msgid "Free Space"
+msgstr "Espai lliure"
+
+#. TODO evand 2009-07-31: Make these the default values in the
+#. GtkBuilder file.
+#: .././usbcreator/frontends/gtk/frontend.py:645
+#: .././usbcreator/frontends/winui/install_window.py:28
+msgid "Starting up..."
+msgstr "S'està iniciant..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:674
+#: .././usbcreator/frontends/winui/frontend.py:155
+#, python-format
+msgid "%d%% complete (%dm%ss remaining)"
+msgstr "%d%% completat (resten %dm %ss)"
+
+#: .././usbcreator/frontends/gtk/frontend.py:678
+#: .././usbcreator/frontends/winui/frontend.py:159
+#, python-format
+msgid "%d%% complete"
+msgstr "%d%% completat"
+
+#: .././usbcreator/frontends/gtk/frontend.py:758
+#, fuzzy
+msgid "Installation is complete. Your device is rebooting into Ubuntu Core."
+msgstr ""
+"Ha finalitzat la instaŀlació. Ara podeu reiniciar l'ordinador amb aquest "
+"dispositiu inserit per a provar o instaŀlar l'Ubuntu."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:21
+#: .././gui/usbcreator-gtk.ui.h:12
+msgid ""
+"To try or install Ubuntu from a removable disk, it needs to be set up as a "
+"startup disk."
+msgstr ""
+"Per a provar o instal·lar l'Ubuntu des d'un disc extraïble, cal configurar-"
+"lo com a disc d'arrencada."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:24
+#: .././gui/usbcreator-gtk.ui.h:13
+msgid "Source disc image (.iso) or CD:"
+msgstr "Imatge de disc (.iso) o CD d'origen:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:32
+#: .././gui/usbcreator-gtk.ui.h:14
+msgid "Other..."
+msgstr "Altre..."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:34
+msgid "Removable disk to use:"
+msgstr "Disc extraïble a utilitzar:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:42
+#: .././gui/usbcreator-gtk.ui.h:17
+msgid "When starting up from this disk, documents and settings will be:"
+msgstr "En arrencar des d'aquest disc, els documents i la configuració:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:45
+msgid "Stored in reserved space"
+msgstr "Emmagatzemat a l'espai reservat"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:46
+#: .././gui/usbcreator-gtk.ui.h:19
+msgid "How much:"
+msgstr "Quant:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:52
+#: .././gui/usbcreator-gtk.ui.h:20
+msgid "Discarded on shutdown, unless you save them elsewhere"
+msgstr "Es descartaran en apagar, a no ser que els deseu en un altre lloc"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:56
+msgid "Quit"
+msgstr "Surt"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:58
+msgid "Make startup disk"
+msgstr "Crea un disc d'arrencada"
+
+#: .././usbcreator/frontends/winui/install_window.py:32
+msgid "&Cancel"
+msgstr "&Cancel·la"
+
+#: .././usbcreator/frontends/winui/frontend.py:76
+msgid "Installation complete"
+msgstr "S'ha completat la instal·lació"
+
+#: .././usbcreator/frontends/winui/frontend.py:82
+msgid "Installation failed"
+msgstr "Ha fallat la instal·lació"
+
+#: .././usbcreator/frontends/winui/frontend.py:183
+msgid "All"
+msgstr "Tots"
+
+#: .././usbcreator/frontends/winui/frontend.py:193
+#: .././gui/usbcreator-gtk.ui.h:11
+msgid "Make Startup Disk"
+msgstr "Crea un disc d'arrencada"
+
+#: .././usbcreator/install.py:140
+#, python-format
+msgid "The extension \"%s\" is not supported."
+msgstr "No s'admet l'ús de l'extensió «%s»"
+
+#: .././usbcreator/install.py:145
+#, python-format
+msgid "Missing matching \"%s\" for source image %s."
+msgstr ""
+
+#: .././usbcreator/install.py:161
+#, python-format
+msgid ""
+"An uncaught exception was raised:\n"
+"%s"
+msgstr ""
+"S'ha produït una excepció no controlada:\n"
+"%s"
+
+#: .././usbcreator/install.py:177
+#, python-format
+msgid ""
+"Insufficient free space to write the image:\n"
+"%s\n"
+"\n"
+"(%d MB) > %s (%d MB)"
+msgstr ""
+"No hi ha prou espai per a escriure la imatge:\n"
+"%s\n"
+"(%d MB) > %s (%d MB)"
+
+#: .././usbcreator/install.py:230
+msgid "Installing the bootloader..."
+msgstr "S'està instaŀlant el carregador d'arrencada..."
+
+#: .././usbcreator/install.py:231
+msgid "Failed to install the bootloader."
+msgstr "Ha fallat la instaŀlació del carregador d'arrencada."
+
+#: .././usbcreator/install.py:261
+msgid "Modifying configuration..."
+msgstr "S'està modificant la configuració..."
+
+#. Failure here probably means the source was not really an Ubuntu
+#. image and did not have the files we wanted to move, see
+#. <https://bugs.launchpad.net/launchpad-code/+bug/513432>
+#: .././usbcreator/install.py:272
+#, python-format
+msgid ""
+"Could not move syslinux files in \"%s\": %s. Maybe \"%s\" is not an Ubuntu "
+"image?"
+msgstr ""
+"No s'han pogut moure els fitxers syslinux de «%s»: %s. Pot ser que «%s» no "
+"sigui una imatge de l'Ubuntu?"
+
+#: .././usbcreator/install.py:343
+msgid "Creating a persistence file..."
+msgstr "S'està creant un arxiu de dades permanents..."
+
+#: .././usbcreator/install.py:346
+msgid "Creating an ext2 filesystem in the persistence file..."
+msgstr ""
+"S'està creant un sistema de fitxers ext2 al fitxer de dades permanents..."
+
+#: .././usbcreator/install.py:358
+msgid "Finishing..."
+msgstr "S'està acabant..."
+
+#. TODO evand 2009-09-02: Disabled until we can find a cross-platform
+#. way of determining dd progress.
+#. self.initialize_progress_thread()
+#: .././usbcreator/install.py:381
+msgid "Writing disk image..."
+msgstr "S'està escrivint la imatge del disc..."
+
+#: .././usbcreator/install.py:382
+#, python-format
+msgid "Could not write the disk image (%s) to the device (%s)."
+msgstr "No s'ha pogut escriure la imatge de disc (%s) al dispositiu (%s)."
+
+#: .././usbcreator/install.py:412
+msgid "Erasing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:415
+msgid "Erasing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:418
+msgid "Flashing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:421
+msgid "Flashing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:426
+#, fuzzy
+msgid "Rebooting device..."
+msgstr "S'estan eliminant els fitxers..."
+
+#. Clear.
+#. Some of the code in this function was copied from Ubiquity's
+#. scripts/install.py
+#: .././usbcreator/install.py:448 .././usbcreator/install.py:561
+msgid "Removing files..."
+msgstr "S'estan eliminant els fitxers..."
+
+#: .././usbcreator/install.py:479 .././usbcreator/install.py:584
+msgid "Copying files..."
+msgstr "S'estan copiant els fitxers..."
+
+#: .././usbcreator/install.py:508
+msgid "md5 checksums do not match."
+msgstr "Les sumes de verificació md5 no coincideixen."
+
+#: .././usbcreator/install.py:537
+#, fuzzy
+msgid "Installing the EFI bootloader..."
+msgstr "S'està instaŀlant el carregador d'arrencada..."
+
+#: .././usbcreator/install.py:538
+#, fuzzy
+msgid "Failed to install the EFI bootloader."
+msgstr "Ha fallat la instaŀlació del carregador d'arrencada."
+
+#. TODO evand 2009-07-23: Catch exceptions around the
+#. user removing the flash drive mid-write.  Give the
+#. user the option of selecting the re-inserted disk
+#. from a drop down list and continuing.
+#. TODO evand 2009-07-23: Fail more gracefully.
+#: .././usbcreator/install.py:656
+#, python-format
+msgid "Could not read from %s"
+msgstr "No s'ha pogut llegir de %s"
+
+#: .././usbcreator/install.py:681
+msgid "Checksums do not match.  Retry?"
+msgstr "Les sumes de verificació no coincideixen. Voleu tornar-ho a intentar?"
+
+#: .././usbcreator/install.py:685
+msgid "Checksums do not match."
+msgstr "Les sumes de verificació no coincideixen."
+
+#: .././gui/usbcreator-gtk.ui.h:1
+msgid "Legal Notice"
+msgstr ""
+
+#: .././gui/usbcreator-gtk.ui.h:2
+msgid "Installation Failed"
+msgstr "Ha fallat la instal·lació"
+
+#: .././gui/usbcreator-gtk.ui.h:3
+#, fuzzy
+msgid ""
+"The installation failed.  Please see ~/.cache/usb-creator.log for more "
+"details.\n"
+msgstr ""
+"La instal·lació ha fallat. Vegeu el fitxer ~/.usbcreator.log per a obtenir "
+"més informació.\n"
+
+#: .././gui/usbcreator-gtk.ui.h:5
+msgid "Installation Complete"
+msgstr "S'ha completat la instal·lació"
+
+#: .././gui/usbcreator-gtk.ui.h:6
+#, fuzzy
+msgid "Test Disk"
+msgstr "Esborra el disc"
+
+#: .././gui/usbcreator-gtk.ui.h:7
+msgid ""
+"Installation is complete.  You may now run Ubuntu on other computers by "
+"booting them with this drive inserted."
+msgstr ""
+"Ha finalitzat la instaŀlació. Ara podeu executar l'Ubuntu en altres "
+"ordinadors engegant-los amb aquesta unitat inserida."
+
+#: .././gui/usbcreator-gtk.ui.h:15
+msgid "Disk to use:"
+msgstr "Disc a utilitzar:"
+
+#: .././gui/usbcreator-gtk.ui.h:18
+msgid "Stored in reserved extra space"
+msgstr "Es desaran en un espai reservat addicional"
+
+#: .././main.py:37
+msgid "Please run this program as an administrator to continue."
+msgstr "Executeu aquest programa com a administrador per a continuar."
+
+#: .././main.py:38
+msgid "Administrator privileges required"
+msgstr "Calen privilegis d'administrador"
+
+#: .././main.py:55
+#, python-format
+msgid ""
+"An unhandled exception occurred:\n"
+"%s"
+msgstr ""
+"S'ha produït una excepció no controlada:\n"
+"%s"
+
+#: .././main.py:56
+msgid "Error"
+msgstr "Error"
+
+#~ msgid "Please insert a CD or select 'Other...'."
+#~ msgstr "Inseriu un CD o seleccioneu «Altre...»."
+
+#~ msgid "0.0 MB"
+#~ msgstr "0.0 MB"
+
+#~ msgid "Cancel"
+#~ msgstr "Canceŀla"
+
+#~ msgid "Format"
+#~ msgstr "Formata"
+
+#~ msgid "Make USB Startup Disk"
+#~ msgstr "Creació d'un disc d'arrencada USB"

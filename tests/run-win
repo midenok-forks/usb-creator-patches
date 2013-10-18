@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import unittest, os, sys
+
+def _collect_tests():
+    r = []
+    for f in os.listdir(os.path.dirname(__file__)):
+        if f.endswith('.py') and 'windows' in f:
+            r.append(f[:-3])
+    return r
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+suite = unittest.TestLoader().loadTestsFromNames(_collect_tests())
+unittest.TextTestRunner(verbosity=2).run(suite)

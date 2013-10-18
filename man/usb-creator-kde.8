@@ -1,0 +1,62 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.TH "USB-CREATOR-KDE" "8" "July 22, 2010" "usb-creator-kde 0.2.23" "Ubuntu Startup Disk Creator For KDE"
+.\" Please adjust this date whenever revising the manpage.
+.\"
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.SH NAME
+usb\-creator\-kde \(hy Ubuntu startup disk creation tool for KDE
+.SH SYNOPSIS
+.B usb\-creator\-kde
+\fR [\-i|\-\-iso <img>] [\-n|\-\-nonpersistent]
+                [\-h|\-\-help] [\-v|\-\-version]
+.SH DESCRIPTION
+\fBusb\-creator\-kde\fP takes an Ubuntu CD or CD image file as input and writes
+it out in a usable form to a removable disk.
+.SH OPTIONS
+.TP
+.B \-i, \-\-iso <img>
+Provide a source image (CD or raw disk) to pre\(hypopulate the UI.
+.TP
+.B \-n, \-\-nonpersistent
+Disable persistent setting by default in the UI.
+.TP
+.BR \-h, \-\-help
+Print a summary of command line options and exit.
+.TP
+.BR \-v, \-\-version
+Print the current version and exit.
+.SH AUTHOR
+\fBusb-creator-kde\fP was written by Roderick B. Greening <roderick.greening@gmail.com>, as ported from 
+\fBusb-creator-gtk\fP. The back-end was written by Evan Dandrea <evand@ubuntu.com>, and is used by this 
+program.
+.PP
+This manual page was written by Roderick B. Greening <roderick.greening@gmail.com>,
+for the Ubuntu project (and may be used by others).
+.SH "REPORTING BUGS"
+Report bugs via Ubuntu Launchpad <https://launchpad.net/ubuntu/+source/usb-creator/+filebug>
+.PP
+When reporting bugs, please be sure to include a copy of the usb-creator log file
+to assist in debugging. This log file can be found as ~/.cache/usb-creator.log.
+.SH COPYRIGHT
+Copyright \(co 2009-2010 Roderick B. Greening
+.br
+Copyright \(co 2009-2010 Evan Dandrea
+.sp 1
+Some portions GPLv2+ and GPLv3+: GNU GPL version 2 or later <http://gnu.org/licenses/gpl.html>.
+.br
+For additional details about Copyright and License, please refer to the package copyright file.
+.sp 1
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.

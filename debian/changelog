@@ -1,0 +1,1097 @@
+usb-creator (0.2.50) saucy; urgency=low
+
+  * Remove untranslated and unnecessary string
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 27 Sep 2013 15:48:29 +0100
+
+usb-creator (0.2.49) saucy; urgency=low
+
+  * SECURITY UPDATE: possible privilege escalation via policykit UID lookup
+    race.
+    - bin/usb-creator-helper: pass system-bus-name as a subject instead of
+      pid so policykit can get the information from the system bus.
+    - CVE-2013-1063
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 18 Sep 2013 13:23:48 -0400
+
+usb-creator (0.2.48) saucy; urgency=low
+ 
+  * Depend on gir1.2-gudev-1.0 (LP: #1178057)
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Fri, 14 Jun 2013 13:03:21 -0400
+
+usb-creator (0.2.47) raring; urgency=low
+
+  * Purge the upstart job.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 20 Mar 2013 09:01:26 +0000
+
+usb-creator (0.2.46) raring; urgency=low
+
+  * Simplify upstart job, do checks in start on conditions and not in
+    pre-start script.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Wed, 06 Feb 2013 19:47:52 +0000
+
+usb-creator (0.2.45.1) raring; urgency=low
+
+  * KDE frontend python3 fixes from Riddell.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 28 Jan 2013 13:35:56 +0000
+
+usb-creator (0.2.45) raring; urgency=low
+
+  * Support flashing devices using fastboot (e.g. Nexus7).
+  * Update translations.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 28 Jan 2013 12:51:45 +0000
+
+usb-creator (0.2.44) raring; urgency=low
+
+  * Revert sync remount flag. It's too slow.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 17 Jan 2013 18:01:22 +0000
+
+usb-creator (0.2.43) raring; urgency=low
+
+  * Port helper script to gobject-interspection. (LP: #1078810)
+  * Fix pygi depreciation warnings.
+  * Fix passing one to many arguments to one Gtk.MessageDialog.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Thu, 10 Jan 2013 14:58:48 +0000
+
+usb-creator (0.2.42) raring; urgency=low
+
+  * Restrict architectures to i386 & amd64. Although it's all pure python,
+    it depends on executing syslinux which is only available on i386 &
+    amd64.
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Mon, 26 Nov 2012 11:02:30 +0000
+
+usb-creator (0.2.41) raring; urgency=low
+
+  * Switch packaging to use python3.
+  * Drop utf-8/gnome workaround, now fixed in gnome.
+  * Do not use INT_MAX (LP: #1076305).
+
+ -- Dmitrijs Ledkovs <dmitrij.ledkov@ubuntu.com>  Fri, 31 Aug 2012 16:52:34 +0100
+
+usb-creator (0.2.40ubuntu1) quantal; urgency=low
+
+  * debian/control: remove Build-Depends on kdesdk-scripts so kdesdk
+    can live in universe
+
+ -- Jamie Strandboge <jamie@ubuntu.com>  Tue, 31 Jul 2012 11:02:49 -0500
+
+usb-creator (0.2.40) quantal; urgency=low
+
+  [ Dmitrijs Ledkovs ]
+  * Increase the height of both source and target treeviews in the GTK+
+    frontend. Thanks to Ross Lagerwall.
+  * Search Desktop in addition to Downloads directory for ISOs. Thanks to
+    Lucian Adrian Grijincu (LP: #761646)
+  * Update debian/copyright to copyright specification 1.0
+  * Bump standards version to 3.8.3
+
+  [ Harald Sitter ]
+  * KDE: don't duplicate entries by improper removal of entries on update
+    (LP: #992061)
+  * udisks: on successful format the ended callback must be called
+  * KDE: strip() ISO labels as some derivates end up having newlines in
+    their label (e.g. netrunner)
+  * KDE: auto-populate the ISO list with files found in downloads dir
+    (LP: #761745)
+
+  [ Jonathan Riddell ]
+  * KDE: do not clear formatting list in backend, fix breakage at
+    end of format
+
+ -- Harald Sitter <apachelogger@ubuntu.com>  Fri, 06 Jul 2012 13:22:46 +0200
+
+usb-creator (0.2.39) quantal; urgency=low
+
+  [ Colin Watson ]
+  * Clean up various pyflakes warnings.
+  * Only pass unicode=True to gettext.install in Python 2.
+  * Open subprocesses with universal_newlines=True when expecting to read
+    text from them.  On Python 2, this only enables \r\n conversion and the
+    like, but on Python 3 this also causes subprocess-related file objects
+    to read str rather than bytes.
+  * Use str() rather than unicode() in Python 3.
+  * Remove __pycache__ directories on clean.
+  * Use 'isinstance(obj, collections.Callable)' instead of 'callable(obj)'
+    in Python 3.
+  * Change 'except StandardError' to 'except Exception'; StandardError was
+    removed in Python 3.
+  * Use Python 3 name for Queue if available.
+  * Handle a few cases of builtins being changed to return iterators in
+    Python 3.
+  * Just use dict.items() rather than bothering with Python 2/3
+    compatibility for dict.iteritems().
+
+  [ Evan Dandrea ]
+  * Only clear the selected partition on the disk, not the entire disk
+    (LP: #484252). Thanks Dmitrijs Ledkovs!
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 28 May 2012 17:58:43 +0100
+
+usb-creator (0.2.38) precise; urgency=low
+
+  [ Colin Watson ]
+  * Fix production of Ubuntu <= 10.04 images on Ubuntu >= 10.10 using
+    syslinux-legacy (LP: #645818).
+
+  [ Evan Dandrea ]
+  * When comparing against 10.04, treat its point releases the same as
+    the initial release.
+  * Drop code to insert 'ui' in front of 'gfxboot bootlogo' in 10.04.
+    The ui command was added after 10.04.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 16 Apr 2012 11:29:30 +0100
+
+usb-creator (0.2.37) precise; urgency=low
+
+  * debian/control: Fix dependency: python-gobject → python-gi.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 13 Mar 2012 19:15:49 +0100
+
+usb-creator (0.2.36) precise; urgency=low
+
+  [ Colin Watson ]
+  * Use Python 3-compatible print functions.
+  * Use "except Exception as e" syntax rather than the old-style "except
+    Exception, e".
+  * Use "raise Exception(value)" syntax rather than the old-style "raise
+    Exception, value".
+  * Use absolute imports.
+
+  [ Martin Pitt ]
+  * usbcreator/frontends/gtk/frontend.py:  We do not have any help for
+    usb-creator, so hide the Help button. (LP: #884008)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sun, 11 Mar 2012 10:14:12 +0100
+
+usb-creator (0.2.35.2) precise; urgency=low
+
+  * depends on gir unity 5.0 (for real, this time)
+
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 13 Jan 2012 10:14:16 +0100
+
+usb-creator (0.2.35.1) precise; urgency=low
+
+  * Wrong target, sorry, reverting to unity 4.0 to upload to the ppa,
+    this time
+
+ -- Didier Roche <didrocks@ubuntu.com>  Wed, 11 Jan 2012 14:45:47 +0100
+
+usb-creator (0.2.35ppa1) precise; urgency=low
+
+  * depends on gir unity 5.0
+
+ -- Didier Roche <didrocks@ubuntu.com>  Wed, 11 Jan 2012 14:40:47 +0100
+
+usb-creator (0.2.35) precise; urgency=low
+
+  * usb-creator currently requires the syslinux binary to make Ubuntu images
+    bootable, so this package can only work on amd64 and i386 at the moment.
+    Change the Architecture line to reflect this.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Mon, 07 Nov 2011 11:55:47 +0000
+
+usb-creator (0.2.34) oneiric; urgency=low
+
+  [ Mario Limonciello ]
+  * Fix usb creator crash in KVMTest().
+
+  [ Gabor Kelemen ]
+  * Build with dh_translations, to localize the .policy file at runtime.
+    LP: #853227
+
+  [ Colin Watson ]
+  * Build-depend on dh-translations and bump required debhelper version, to
+    support previous change.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 04 Oct 2011 14:38:20 +0100
+
+usb-creator (0.2.33) oneiric; urgency=low
+
+  * Ensure that at least /bin, /sbin, /usr/bin, and /usr/sbin are on PATH
+    (LP: #826716).
+  * Fix bad method call in UDisksBackend.format_failed (LP: #806611).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Wed, 07 Sep 2011 17:09:41 +0100
+
+usb-creator (0.2.32) oneiric; urgency=low
+
+  * usbcreator/frontends/gtk/frontend.py: Fix invalid "None" argument for
+    TreeView.set_cursor().
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 05 Sep 2011 12:18:15 +0200
+
+usb-creator (0.2.31.2) oneiric; urgency=low
+
+  * usbcreator/frontends/gtk/frontend.py: Move from static gobject to GI
+    GObject module, to be compatible to upcoming pygobject 3.0.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Wed, 17 Aug 2011 08:22:11 +0200
+
+usb-creator (0.2.31.1) oneiric; urgency=low
+
+  * debian/control:
+    - depends now on gir1.2-unity-4.0
+
+ -- Didier Roche <didrocks@ubuntu.com>  Fri, 12 Aug 2011 17:25:09 +0200
+
+usb-creator (0.2.31) oneiric; urgency=low
+
+  * Add Unity progress support.  Thanks Robert Roth!
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 28 Jul 2011 17:27:55 +0100
+
+usb-creator (0.2.30) oneiric; urgency=low
+
+  [ Martin Pitt ]
+  * usbcreator/frontends/gtk/frontend.py: Port from obsolete PyGTK to PyGI.
+  * debian/control: Update dependencies for above.
+  * debian/control, debian/rules: Move to dh_python2, pysupport is obsolete.
+  * debian/control: Bump Standards-Version to 3.9.2 (no changes necessary).
+
+  [ Evan Dandrea ]
+  * Fix a typo in the GTK 3 work.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 19 May 2011 17:58:47 +0100
+
+usb-creator (0.2.29) oneiric; urgency=low
+
+  [ Evan Dandrea ]
+  * Add the ability to test freshly written disks in KVM.
+  * Add a udisks dump to the apport hook.
+  * Let the user format more than one device at a time.
+  * Guard UnmountFile with PolicyKit (LP: #771553).
+
+  [ Mario Limonciello ]
+  * Show the vendor/model of targets in the UI.
+
+  [ Marc Deslauriers ]
+  * SECURITY UPDATE: unprivileged disk operations (LP: #771553)
+    - CVE-2011-1828
+  * setup.cfg: Specify policykit policy file as xml_file so it gets
+    translated properly instead of being malformed.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Thu, 19 May 2011 16:52:49 +0100
+
+usb-creator (0.2.28) natty; urgency=low
+
+  * Fix showing a partitioning when it appears before the partition
+    table block device.
+
+ -- Evan Dandrea <ev@ubuntu.com>  Mon, 31 Jan 2011 14:41:37 +0000
+
+usb-creator (0.2.27) natty; urgency=low
+
+  [ Mario Limonciello ]
+  * If the EFI bootloader isn't present in the proper location but efi.img is
+    available in boot/grub, extract the EFI bootloader and place it in the proper
+    location. (LP: #677260)
+
+  [ Evan Dandrea ]
+  * Hide partition table block devices by default.  To revert to the
+    previous behavior, pass --show-all to usb-creator-gtk.
+  * Increase the minimum persistent storage size to 1G.
+  * Add a 30MB padding for the kernel and initramfs (LP: #562312).
+
+ -- Evan Dandrea <ev@ubuntu.com>  Fri, 28 Jan 2011 15:42:25 +0000
+
+usb-creator (0.2.26) natty; urgency=low
+
+  [ Michael Terry ]
+  * debian/control, usbcreator/frontends/gtk:
+    - Remove python-gnome2 dependency by switching help_display_uri to
+      gtk.show_uri.  LP: #661289
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 17 Nov 2010 10:45:50 +0000
+
+usb-creator (0.2.25) maverick; urgency=low
+
+  * Grow support for installing GRUB to USB sticks if it's detected in the image
+    rather than isolinux. (LP: #633712)
+
+ -- Mario Limonciello <Mario_Limonciello@Dell.com>  Thu, 23 Sep 2010 03:17:56 -0500
+
+usb-creator (0.2.24) maverick; urgency=low
+
+  [ Mario Limonciello ]
+  * Mangle whether the 'ui' keyword is in syslinux.cfg based on the OS version.
+    (LP: #608382)
+
+  [ Colin Watson ]
+  * GTK frontend: don't grey out "Make Startup Disk" when the source is a
+    physical CD.
+  * Use python-debian for Ubuntu release version comparison.
+  * Add an --allow-system-internal option (Unix only) to allow installation
+    to system-internal devices such as hard disks.  This is useful when
+    preparing test USB images in KVM.
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 07 Sep 2010 10:40:37 +0100
+
+usb-creator (0.2.23) maverick; urgency=low
+
+  [ Evan Dandrea ]
+  * Continue evaluting whether or not a partition can be used even if
+    there is no source present (LP: #566390).
+  * Change the team from the Installer Team to usb-creator Hackers to
+    match the bzr ACL.
+
+  [ Colin Watson ]
+  * Make usb-creator-common depend on parted (LP: #529366).
+
+  [ Roderick B. Greening ]
+  * Fix cannot resize usb-creator-kde main window (LP: #580551). 
+  * Update branding on KDE Icon (LP: #580558). 
+  * Switch from exists to isfile detection in backend (LP: #608741)
+  * Bump version strings to 0.2.23
+  
+  [ Dmitrijs Ledkovs ]
+  * desktop:
+    + removed obsolete encoding keys from desktop files
+  * man:
+    + fixed hyphens, minus signs & undefined macros
+    + removed non-working "-v" flag from usb-creator-gtk.8 (LP: #574089)
+  * po:
+    + translations dump from lucid. (LP: #570174)
+  * debian/usb-creator-common.install:
+    + install translations (for ppa's, archive will strip them)
+  * debian/source:
+    + using 3.0 (native) format
+  * debian/copyright:
+    + updated to DEP-5 format
+  * debian/control:
+    + removed transitional package (LTS is released)
+    + improved extended description
+    + added forgotten python-support dependency
+    + updated descriptions (thanks Matthew Paul Thomas)
+  * debian/rules:
+    + using dh tiny rules
+    + using python-support
+    + vendor branded icons installed if available
+    + debian-menu installed if there are branded xpm's
+  * .bzr-builddeb:
+    + defaults to native
+
+  * Use XDG_CACHE_DIR for usb-creator.log
+  * Use XDG IconTheme spec for window icons (LP: #535061)
+  * Fix install button sensetivity (LP: #582531)
+
+  [ Ignace Mouzannar ]
+  * Initial Debian release (Closes: #582884, #576359)
+  * debian/control:
+    + Added Build dependency on kdesdk-scripts (Debian specific)
+  * debian/usb-creator-gtk.menu and debian/usb-creator-kde.menu:
+    + Added these files as per the Debian Menu Policy
+  * debian/Debian/*.xpm:
+    + Added the xpm icons needed by the menu files
+  * debian/copyright:
+    + Added myself in the debian/* copyright
+
+  [ Jonathan Riddell ]
+  * Fix kde/frontend.py for PyQt 4.7 which now expects a string not a
+    QString for loadUi
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 03 Aug 2010 10:49:34 -0400
+
+usb-creator (0.2.22) lucid; urgency=low
+
+  [ Roderick B. Greening ]
+  * Get rid of the needs-format warning for now.  It was always shown
+    for parent block devices and the confusing resulting from that was
+    quite bad. This was previously done for gtk but not kde version.
+  * Update kde frontend format option to match gtk frontend/backend
+    (LP: #553460)
+  * Add warning dialog to format button for usb-creator-kde, to match gtk. 
+  * Add BusyCursor while formatting under usb-creator-kde, to match gtk. 
+
+  [ Evan Dandrea ]
+  * Change the format button's label to 'Erase Disk' as it wipes the
+    entire disk, rather than an individual partition (LP 484252).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 13 Apr 2010 16:41:26 +0100
+
+usb-creator (0.2.21) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Change 'Flushing writes to the disk...' to 'Finishing...', as the
+    former is too technical.  Thanks Iain Farrell!
+  * Encode ISO path with UTF-8 when mounting (LP: #460298).
+
+  [ Roderick B. Greening ]
+  * Update KDE Frontend to work with newer PyQt bindings (LP: #553243).
+  * Bump version to 0.2.21 in setup.py, kde_about.py, usb-creator-gtk,
+    and man pages.
+  * Add explicit version requirement to depend on latest usb-creator-gtk
+    for usb-creator. 
+
+ -- Roderick B. Greening <roderick.greening@gmail.com>  Thu, 01 Apr 2010 13:59:48 -0230
+
+usb-creator (0.2.20) lucid; urgency=low
+
+  * Fix format failing due to the device being busy (because we were
+    mounting it unnecessarily).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 30 Mar 2010 17:35:04 +0100
+
+usb-creator (0.2.19) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Don't force select a source unless the list is empty.
+  * Reverse the order of the populating ISOs and command line option --iso
+    again so that --iso always trumps others.
+  * Hide the source_vbox again when --iso is used.
+
+  [ Evan Dandrea ]
+  * Get rid of the needs-format warning for now.  It was always shown
+    for parent block devices and the confusing resulting from that was
+    quite bad.
+  * Rework partition mounting so that it doesn't fail if the partition
+    was mounted between dbus calls.
+  * Somewhat fix progress reporting.
+  * Don't write usb-creator-helper's log to /root (LP: #461064).
+  * Provide a format confirmation dialog (LP: #443330).
+  * Error out of formatting if we're unable to unmount all of the
+    partitions (LP: #507420).
+  * Provide feedback via a spinning cursor and disabled format button
+    while formatting (LP: #457737).
+  * Only call gtk.main_quit if we're in a mainloop.
+  * Don't try to unmount a partition in usb-creator-helper unless it
+    actually is mounted.
+  * Unmount the partition at the end of install using
+    usb-creator-helper rather than umount as a regular user.
+  * Handle device changes by synthesizing a remove and add.
+  * Pulse the progress bar while flushing changes to disk.
+  * Pulse when installing the bootloader.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 24 Mar 2010 18:34:35 +0000
+
+usb-creator (0.2.18) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Move the populating of ISOs from ~/Downloads to before adding an ISO
+    from command line option --iso.  This allows the command line fed
+    ISO to be selected automatically.
+
+  [ Evan Dandrea ]
+  * Provide a quick workaround for LP 529366 while a better fix is
+    prepared.  Ignore errors on setting the boot flag for the target
+    partition.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 08 Mar 2010 10:51:43 +0000
+
+usb-creator (0.2.17) lucid; urgency=low
+
+  [ Martin Pool ]
+  * If the source image is not an Ubuntu image (does not contain syslinux)
+    provide a better clue when failing.
+  * When you add a new source to the source list, select it.
+
+  [ Brian Murray ]
+  * Add an apport package hook (LP: #489908)
+
+ -- Kees Cook <kees@ubuntu.com>  Thu, 04 Mar 2010 16:52:28 -0800
+
+usb-creator (0.2.16) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Fix window layout when -i argument is used.
+  * Use ubiquity's label wrapping fix.
+  * Don't tell devicekit-disks to set the partition table to 'none'
+    before 'mbr', as it's no longer required.
+
+  [ Martin Pitt ]
+  * Port to udisks: Rename all DeviceKit-Disks related D-Bus interfaces,
+    object paths, source code files, function names, and variables to their
+    UDisks counterpart.
+  * Replace devicekit-disks dependency with udisks (1.0.x)
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Mon, 15 Feb 2010 09:42:54 +0100
+
+usb-creator (0.2.15) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * Ensure that the download_dir is really a directory before scanning it for 
+    ISOs to include in the list.  Fixes launching usb-creator-gtk as root.
+  * If hiding the persistence and iso selection in the UI, make sure to do
+    so before window.show() to prevent weird sizing of the window
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 02 Feb 2010 17:35:04 -0800
+
+usb-creator (0.2.14) lucid; urgency=low
+
+  [ Mario Limonciello ]
+  * When setting the no persistence flag (-n), don't offer changing
+    persistence in the UI.  There's generally a good reason it's being
+    disabled in the first place.
+  * When a source image is provided in the startup flags, don't offer
+    to select different images in the UI.
+  * Widget names are no longer stored in the widget's internal name, but
+    rather in the object data.  Sync this information back to the widget's
+    internal name. (LP: #503710)
+
+  [ Evan Dandrea ]
+  * Hack around GTK's lack of good label wrapping (again).
+  * Point to correct location for the log file in the man page.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 06 Jan 2010 22:24:57 +0000
+
+usb-creator (0.2.13) lucid; urgency=low
+
+  [ Evan Dandrea ]
+  * Set the install window as translatable.  Thanks Milo Casagrande
+    (LP: #414742).
+  * Fix a typo in the Windows frontend (LP: #454926).
+  * Use a close button instead of a quit button in the GTK+ frontend
+    (LP: #285916).
+  * Change the program title (not the program name) to "Startup Disk
+    Creator" as usb-creator writes to more than just USB disks these days
+    (LP: #275138).
+  * In the GTK+ frontend, scan the download directory on startup and add
+    all the CD and disk images (LP: #441104).
+  * Expand the path provided by the -i option to its absolute
+    (LP: #458497).
+  * Unmount the target device rather than calling sync (LP: #457510).
+
+  [ Martin Pitt ]
+  * bin/usb-creator-helper: Supply start-time in the PolicyKit subject struct,
+    so that this also works with current polkit-1 in lucid.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Tue, 08 Dec 2009 10:51:37 +0100
+
+usb-creator (0.2.12) karmic; urgency=low
+
+  * Properly mount the device when the user requests to open it in a
+    file manager (LP: #455199).
+  * Blacklist gfxboot.cfg in mangle_syslinux (LP: #456990).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 22 Oct 2009 12:52:01 +0100
+
+usb-creator (0.2.11) karmic; urgency=low
+
+  * Add a help button for the GTK+ frontend.
+  * Feature freeze exception (LP: #451124).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 15 Oct 2009 12:00:47 +0100
+
+usb-creator (0.2.10) karmic; urgency=low
+
+  [ Cody A.W. Somerville ]
+  * usbcreator/install.py:
+    - Do not copy /syslinux/syslinux.cfg to root of disk, no longer needed.
+    - Look at all files ending in .cfg under the syslinux directory when
+      updating configuration files based on the options selected in usb-creator.
+    - Strip tabs when parsing iso/syslinx config files to correctly identify
+      commands in a syslinux config file that indents lines.
+
+  [ Evan Dandrea ]
+  * Small fixes to Cody's changes to the mangle_syslinux function:
+    - Don't assume / is the path separator.
+    - Add command line entries to the front, to avoid them being carried over
+      to the installed system.
+    - Write all lines, not just modified ones.
+  * Properly set the icons in the source treeview.  Thanks John S.
+    Gruber (LP: #436469).
+  * Handle the device no longer existing in fs_size (LP: #439001).
+  * Update translations from Launchpad.
+
+  [ Roderick B. Greening ]
+  * Fix issues with UTF.8 (unicode) strings being cast to str
+    (LP: #440719).
+    - Updated KDE Front-end
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 13 Oct 2009 11:08:16 +0100
+
+usb-creator (0.2.9) karmic; urgency=low
+
+  * Properly catch exceptions around modifying the syslinux
+    configuration (LP: #439977).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 02 Oct 2009 11:42:25 +0100
+
+usb-creator (0.2.8) karmic; urgency=low
+
+  * Modify adtext.cfg as well when adding options to the syslinux
+    configuration (LP: #317059).
+  * The persistence value is no longer passed around as a string.  Fix a
+    check that assumed it was.  This was causing the persistence option
+    to always be written (LP: #436207).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 29 Sep 2009 09:13:56 +0100
+
+usb-creator (0.2.7) karmic; urgency=low
+
+  [ Evan Dandrea ]
+  * Add PolicyKit support (LP: #273483).
+  * Move logging back to the home directory, now that usb-creator is run as a
+    regular user (LP: #431266).
+  * Use GIO instead of gnomevfs.  Only lookup GNOME device names and
+    icons as needed.
+  * Remove the device in the DeviceKit-disks backend when it's removed
+    from the system.
+  * Only set the non-size columns to expand to fill available space in the GTK+
+    frontend.  Set a minimum width of 75px for all columns.
+  * Add the missing retry dialog to the GTK+ frontend.
+  * Fix a deadlock when the failed dialog runs.
+  * Explicitly depend on mtools, just in case someone removes it and
+    expects usb-creator to still work (LP: #295212).
+  * Re-enable the format button now that Devicekit-disks 007 has been
+    released.
+  * Depend on DeviceKit-disks >= 007.
+  * Freeze exception (LP: #432542).
+  * Update translations from Launchpad.
+
+  [ Roderick B. Greening ]
+  * Bump version in setup.py, kde_about.py, usb-creator-gtk, and man to 0.2.7
+  * Remove completed TODO items
+  * Update some message strings for translations
+  * Add the missing retry dialog to the KDE frontend.
+  * Update man pages to reflect new log file location
+  * In devicekit backend, ensure mount is empty string '' rather than empty
+    dbus.Array to prevent crashes in os.statvfs from misc.py
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 24 Sep 2009 10:02:28 -0700
+
+usb-creator (0.2.6) karmic; urgency=low
+
+  [ Evan Dandrea ]
+  * Ignore 0 byte devices.  Thanks Roderick B. Greening!
+  * Close the file chooser when Cancel is selected (LP: #426430).  Thanks
+    Severin Heiniger!
+  * Ellipsize long text strings in the GTK+ treeviews (LP: #424883).
+  * Make sure the ISO image gets unmounted when the install succesfully
+    completes (LP: #414821).
+  * Re-enable the destination status message.
+  * Fix broken free space update.
+  * Don't report disks as having 0 B free space.  It's confusing.
+  * Updated translations from Launchpad.
+
+  [ Roderick B. Greening ]
+  * Make kde frontend call detect_devices from private ref (self.__backend).
+  * Add update_loop timer to mirror gtk frontend
+  * Fix Makefile to include ./bin/usb-creator-* for translations
+  * Update kde frontend and ui to provide better translations in line with
+    gtk frontend.
+  * Add the translation script (Messages.sh) for kde .pot file generation
+  * Bump version in setup.py, kde_about.py, usb-creator-gtk, and man to 0.2.6
+  * Enforce a MAX_PERSISTENCE of 4GB, otherwise dd fails tring to create
+    a file > 4GB
+  * Add the destination status message to kde frontend.
+  * Update man pages
+  * Add unmount ISO call to kde frontend
+  * Use id-label instead of partition-label in devicekit backend 
+
+  [ Harald Sitter ]
+  * Bump standards version to 3.8.3
+  * Fix spelling GTK -> GTK+
+  * Don't exceed 80 characters in control file
+  * Don't exceed 80 characters in changelog file
+  * KDE UI:
+    + Backend expects str for add_image, so do a type conversion from QString
+
+  [ Jonathan Riddell ]
+  * kde_about.py: Use correct translations catalogue
+  * Extract strings for KDE frontend into .pot file
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 15 Sep 2009 18:26:23 +0100
+
+usb-creator (0.2.5) karmic; urgency=low
+
+  [ Harald Sitter ]
+  * Remove settings categories to de-clutter the KDE menu (settings doesn't
+    make all that much sense for KDE)
+
+  [ Evan Dandrea ]
+  * Show partition table block devices.
+  * Fix persistence once more.
+  * Fail more gracefully when an error occurs while setting up the install
+    routine.
+  * Fully re-enable ISO image support (LP: #422671)
+  * Add some debugging breadcrumbs.
+  * Unmount partitions before writing a disk image.
+  * Clear the boot sector code area and set the boot flag on the partition
+    (LP: #425680).
+
+  [ Roderick B. Greening ]
+  * Updated man pages
+  * Updated licence info in kde frontend modules to GPLv3+
+  * Bump version in setup.py, kde_about.py, usb-creator-gtk to 0.2.5
+  * Fix exit button which fails to exit in usb-creator-gtk (on fail or 
+    successful install dialog)
+  * Remove unused get_solid_drive() from kde/frontend.py
+
+  [ Steve Langasek ]
+  * Make sure .ui files are marked as type: gettext/glade in POTFILES.in, so
+    that source strings are picked up for translation. LP: #419069.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 08 Sep 2009 15:34:58 +0100
+
+usb-creator (0.2.4) karmic; urgency=low
+
+  [ Evan Dandrea ]
+  * Re-enable perodic sufficient free space checks.
+  * Re-enable optional persistence file creation in the UI.
+  * Fix image and ISO writing for the devicekit backend.
+
+  [ Roderick B. Greening ]
+  * Update KDE TODO
+  * Bump version in setup.py, kde_about.py, usb-creator-gtk to 0.2.4
+  * General clean-up in usb-creator-kde to mirror current usb-creator-gtk
+    - remove _fail, excepthook def's as not needed
+    - remove trace options
+    - remove safe command line option
+  * Update man page
+  * General clean-up in kde/frontend.py
+    - remove unused setup_sources_treeview and setup_targets_treeview
+    - temporarily disable format and other buttons as they are currently broken 
+
+  [ Colin Watson ]
+  * Resolve GTK object ID clash (LP: #422071).
+
+ -- Colin Watson <cjwatson@ubuntu.com>  Tue, 01 Sep 2009 15:29:56 +0100
+
+usb-creator (0.2.3) karmic; urgency=low
+
+  [ Evan Dandrea ]
+  * Depend on python-qt4-dbus.  Thanks Daniel T. Chen (LP: #404553).
+  * New KDE icon.  Thanks Jonathan Riddell and Ken Wimer!
+  * Massively cleaned up the structure of the usb-creator code.
+  * Replaced the HAL backend with a DeviceKit-disks backend.
+  * Added a Windows frontend and backend (built outside the archive).
+  * Manage the install routine and progress feedback in separate threads,
+    rather than a separate process.
+  * Replace dependency on parted and mtools with devicekit-disks.
+
+  [ Roderick B. Greening ]
+  * Update ui file name for KDE.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 26 Aug 2009 21:16:18 +0100
+
+usb-creator (0.2.2) karmic; urgency=low
+
+  [ Sebastien Bacher ]
+  * Use gtkbuilder rather than libglade (lp: #403543)
+
+  [ Evan Dandrea ]
+  * Shuffle treeview selection callbacks around to avoid them getting
+    triggered before the backend is running.
+  * Update translations.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 24 Jul 2009 10:38:47 +0100
+
+usb-creator (0.2.1) karmic; urgency=low
+
+  * Better i18n support.  Thanks Loïc Minier and Juanje Ojeda Croissier!
+  * Some fixes to the KDE frontend from Roderick B. Greening:
+    - Update bug e-mail for about settings
+    - Tighten up some of the import statememnts in kde_frontend
+    - Connect the apps quit signal to kde_frontend's quit method
+    - Cleanup/improve progress bar code for kde_frontend
+    - Make sure we cleanup after finish is called in kde_frontend
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Jul 2009 12:42:30 +0100
+
+usb-creator (0.2.0) karmic; urgency=low
+
+  [ Roderick B. Greening ]
+  * Add a KDE frontend.
+  * Updated packaging 
+    - bump to debhelper 7
+    - bump standards version
+    - add usb-creator-kde package
+    - split usb-creator into usb-creator-gtk and usb-creator-common
+      - usb-creator-common conflict/replaces old usb-creator
+    - add transitional package for usb-creator and rename old
+      usb-creator to usb-creator-gtk
+    - update man pages
+    - update install files according to new split
+    - update setup.py to look for data files (better for portability)
+    - update desktop files
+  * Update pot files for kde addition and gtk transition
+  * Added KDE Icon and renamed GTK one
+  * Added a 'Syncing' media message to install.py (syncing takes a while and app sits at 99%)
+
+  [ Evan Dandrea ]
+  * Add a simplistic estimator of the remaining time.  Thanks Lars
+    Wirzenius (LP: #333051).
+  * Go back to the Intrepid behavior of using MB precision for the persistent
+    storage size.
+  * Add raw disk image support.  Thanks Bruno Dilly for the progress logic.
+  * Change the wording on the reboot message slightly to ease confusion.
+    Thanks Andrew Keyes.
+  * Add unittest support.
+  * Use the logging module, rather than a custom logging class.
+  * Raise exceptions in backend.popen rather than parsing a tuple returned
+    from it.
+  * Add icons for CD images and raw disk images.
+  * Support drag and drop of CD images and raw disk images.
+  * Completely refactor the backend and gtk_frotend code.
+  * Use HAL where possible to unmount partitions in order to avoid races.
+  * Handle HAL not running and other errors when usb-creator is started.
+  * Properly connect to the system bus.
+  * Get mountpoints directly from HAL as needed, rather than trying to keep a
+    list of them in sync.
+  * Unmount partitions mounted by usb-creator on unrecoverable failure.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 23 Jul 2009 11:40:58 +0100
+
+usb-creator (0.1.16) jaunty; urgency=low
+
+  * gui/usbcreator.glade: gtk-quit, gtk-open, gtk-cancel labels shouldn't be
+    translatable.
+  * po/usbcreator.pot: update for previous change.
+
+ -- Loic Minier <lool@dooz.org>  Fri, 17 Apr 2009 12:52:19 +0200
+
+usb-creator (0.1.15) jaunty; urgency=low
+
+  * Set the proper gettext domain.  Thanks Timo Jyrinki (LP: #331061).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Mar 2009 21:23:22 +0000
+
+usb-creator (0.1.14) jaunty; urgency=low
+
+  * Disable WrapLabel until its bugs are worked out.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Mar 2009 16:38:51 +0000
+
+usb-creator (0.1.13) jaunty; urgency=low
+
+  [ Evan Dandrea ]
+  * Fix the .desktop item i18n support (LP: #331061). Thanks Timo
+    Jyrinki!
+  * "Note that using GTK_WIN_POS_CENTER_ALWAYS is almost always a bad idea."
+    Place the window in the center, don't keep it centered.  Thanks Eric
+    Butler.
+  * Set the title property of the labels after creating WrapLabels, not
+    before.  Thanks Eric Butler.
+  * Point Vcs-Bzr in the control file to the proper location.
+  * Call dd with the correct arguments (LP: #331327).  Thanks Martin Pitt!
+  * Move the addition of usb-creator.desktop.in to POTFILES.in to the build
+    script.
+  * Support SD cards and other removable devices.  Thanks Eric Butler!
+
+  [ Martin Pitt ]
+  * setup.py: Remove broken installation of .desktop file; p-distutils-extra
+    already does that. Fixes FTBFS.
+  * setup.py: Use p-distutils-extra's clean rule to properly remove build/.
+
+ -- Martin Pitt <martin.pitt@ubuntu.com>  Sun, 15 Mar 2009 22:48:23 +0100
+
+usb-creator (0.1.12) jaunty; urgency=low
+
+  [ Evan Dandrea ]
+  * Correct grammatical typo in the GTK frontend (LP: #297569).
+  * Depend on mcopy as syslinux only recommends it (LP: #296093).
+  * Mark more strings for translation.  Thanks István Nyitrai (LP: #310804).
+  * Change the Debian maintainer to the Ubuntu Installer Team.
+  * Work around a long standing GTK label bug by using a Python version of
+  * libview's WrapLabel.
+  * Fix nonsense 1 byte writes of the casper-rw ext3 loopback fs
+    (LP: #313364).
+  * Basic file copy error handling.
+  * Sync the disk at the end of installation.
+  * Better handle filesystem-on-disk in the bootloader installing code.
+    Thanks Loïc Minier (LP: #325375)
+
+  [ Jonathan Ernst ]
+  * Menu entry should be named "USB startup disk creator" (LP: #286924) 
+  * Add French translation to desktop file
+  
+ -- Evan Dandrea <evand@ubuntu.com>  Wed, 18 Feb 2009 10:45:56 +0000
+
+usb-creator (0.1.11) jaunty; urgency=low
+
+  [ Evan Dandrea ]
+  * Strip null bytes from the CD label when parsing it from an ISO file
+    (LP: #287318).
+  * Internally represent the persistent file size in bytes for greater
+    accuracy.
+  * Move self.pipe declaration to the correct location (LP: #291645).
+  * Add a bootloader installation progress message.
+  * Install the bootloader to the MBR as well (LP: #273477).
+  * Specify the filesystem type when mounting iso9660 images.
+  * Warn the user when usb-creator cannot mount an image (LP: #287753).
+  * i18n support (LP: #285413, #292556).
+  * Added Swedish tranlsation (LP: #285811).  Thanks Daniel Nylander.
+  * Add -t option to write a trace file.
+  * Don't include all .py files in the tree for translation.
+  * Don't update the pot file on every build.
+  * Write more information to the log (subprocesses, stderr, etc).
+
+  [ Martin Owens ]
+  * Fix small issue where enlarging the main window would have a different
+    expanding effect on the top listview from the bottom listview.
+  * Add gnomevfs support to use gnome device labels and icons. This should
+    make things more user friendly.
+
+  [ Mario Limonciello ]
+  * Add support for providing command line ISO images.
+  * Add support for defaulting the persistence setting in the UI via
+    command line.
+  * Default the GUI to start up centered on the screen.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 20 Nov 2008 09:28:08 +0000
+
+usb-creator (0.1.10) intrepid; urgency=low
+
+  * Always write cdrom-detect/try-usb=true, rather than just when
+    persistence is enabled.
+  * persist was always getting enabled as the flag for it was being passed as
+    a string rather than an integer.
+  * Fix crash when the shutdown function would get called before the install
+    process began (LP: #277869).
+  * Added an icon (taken from Ubiquity until we have an icon of our own)
+    (LP: #285704).
+  * Add dependency on gksu.  Thanks Colin Watson (LP: #286950).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 27 Oct 2008 05:15:18 -0400
+
+usb-creator (0.1.9) intrepid; urgency=low
+
+  * Write syslinux configuration to text.cfg as well (LP: #285011).
+  * Move from System Tools to Administration (LP: #285009).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Fri, 17 Oct 2008 10:28:53 -0400
+
+usb-creator (0.1.8) intrepid; urgency=low
+
+  * Add cdrom-detect/try-usb=true to the kernel command line so that
+    usb-creator is usable with alternate CDs (LP: #234185).
+  * Properly notify that the the user needs to insert a CD, not a USB disk,
+    when no CD is inserted.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 16 Oct 2008 03:53:04 -0400
+
+usb-creator (0.1.7) intrepid; urgency=low
+
+  * Unmount filesystems before formatting the device (LP: #273671).
+  * Apparently order matters with respect to keyword arguments.
+  * Filter out removable CD-ROM devices when trying to find empty disks
+    (LP: #271006).
+  * Only look for devices that have the media_size property when looking for
+    empty partition tables (LP: #271006).
+  * Remove the device representing an empty partition table if we find one of
+    its partitions (LP: #273671).
+  * Properly set the boot device.
+  * Shut down the install process when the cancel button is pressed.
+  * Add the persistence and noprompt options to syslinux.cfg.
+  * Handle the install process dying before shutdown() is called.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Sun, 28 Sep 2008 20:06:41 -0400
+
+usb-creator (0.1.6) intrepid; urgency=low
+
+  * Write the log file to SUDO_USER's home directory, not root's.
+  * Start the file chooser in SUDO_USER's home directory (LP: #273642).
+  * Show a warning dialog when an ISO image cannot be used (LP: #272415).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Sep 2008 10:56:00 -0400
+
+usb-creator (0.1.5) intrepid; urgency=low
+
+  * Add --safe option to enable syslinux's 'safe, slow, and stupid' mode
+    (LP: #273740).
+  * Fix cases where free_space gets called after we've unmounted filesystems
+    as part of the shutdown process (LP: #273861).
+  * Lower debhelper requirement for Hardy backport (LP: #273936).
+  * Update percentage by bytes, not files copied (LP: #269037).
+  * Remove files and directories that we're going to write to beforehand.
+  * Notify the user that they need to insert an USB stick when none are
+    available (LP: #267794).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Thu, 25 Sep 2008 02:04:47 -0400
+
+usb-creator (0.1.4) intrepid; urgency=low
+
+  * Refactor the code to set up signal receivers and disconnect the
+    property_modified callback before the main installation process.
+  * Replaced the MessageDialogs with full dialogs defined in Glade to avoid
+    the windows not appearing in the taskbar and falling behind other
+    windows.
+  * Create a partition table before attempting to create new partitions.
+  * Require the device be formatted if a vfat partition is not present.
+  * Show a message dialog with warnings from the backend.
+  * Set the boot flag when installing the bootloader (LP: #272775).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 23 Sep 2008 03:37:26 -0400
+
+usb-creator (0.1.3) intrepid; urgency=low
+
+  [ Evan Dandrea ]
+  * Added a man page for usb-creator.8.
+  * UI reworking after discussions with mpt.  Thanks Matthew.
+    - The labels are far less wordy.
+    - Enabling persistence is now an explict option button selection rather
+      than implicitly enabled when the slider is moved to a value greater
+      than 0.
+    - There are now two treeviews, instead of the previous comboboxes, that
+      update automatically to reflect changes to the device's structure, and
+      provide warnings when a device is either unusable or require the user
+      to delete some files to free up space before continuing.
+  * Fixed the left-alignment of labels thanks to a tip from Colin Watson.
+  * Merged the separate CD and ISO lists into the CD list in the backend.
+  * Replaced the log-output backed command wrapper with a simpler solution
+    (LP: #269044).
+  * Now logging to ~/.usb-creator.log instead of just stdout.
+  * Moved the persistence code from the backend to scripts/install.py and
+    wired up the persistence scale in the frontend.
+  * The backend now reports the task description in addition to the progress
+    value.
+  * A failure dialog is now shown when scripts/install.py exits non-zero
+    (LP: #269035).
+  * Mount the target device at install time if it has not already been
+    mounted (LP: #269032).
+  * Properly set the labels of the progress dialog on install startup.
+  * Do not make the dialogs modal.
+  * Elevate privileges using gksu.
+  * Added a .desktop file (LP: #267788).
+  * Work around a bug in syslinux wherein it can only find the configuration
+    file for the option labels in the root of the device.
+  * Handle devices with empty partition tables.
+  * Automatically mount (and unmount) partitions (LP: #269032).
+  * Fixed missing Debian dependencies (LP: #269767).
+  * UI Freeze exception upload (LP: #270530).
+
+  [ Colin Watson ]
+  * Avoid executing commands via the shell (LP: #269048).
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 16 Sep 2008 03:29:55 -0400
+
+usb-creator (0.1.2) intrepid; urgency=low
+
+  * Fix incorrect paths leftover from testing.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Sep 2008 09:21:02 -0400
+
+usb-creator (0.1.1) intrepid; urgency=low
+
+  * Fix FTBFS.  Thanks David Futcher (LP: #267103).
+  * Corrected licensing to GPLv3 rather than GPLv3+.
+  * Replaced 'Select a CD image...' combobox item with an Add button
+    (LP: #267798).
+  * Fixed some widget spacing issues.
+  * Fixed progress reporting and switched back to using the internal install
+    routine.
+  * Unset the sensitivity of the install button where appropriate.
+  * Added a successful completion dialog.
+  * Added a install cancellation confirmation dialog.
+  * Properly shut down the install process when exiting.
+  * Properly clean up loop mounted filesystems and temporary directories.
+  * Added support for physical CDs.
+  * Fixed a bug wherein a newly inserted USB key would accidentally get added
+    to the list of sources and trigger an exception.
+
+ -- Evan Dandrea <evand@ubuntu.com>  Tue, 09 Sep 2008 03:59:27 -0400
+
+usb-creator (0.1) intrepid; urgency=low
+
+  * Initial release (LP: #263551)
+
+ -- Evan Dandrea <evand@ubuntu.com>  Mon, 01 Sep 2008 02:07:59 -0400
+

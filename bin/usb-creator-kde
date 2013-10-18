@@ -1,0 +1,99 @@
+#!/usr/bin/python3
+
+# Copyright (C) 2009 Roderick B. Greening <roderick.greening@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License version 3,
+# as published by the Free Software Foundation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import os
+import sys
+import logging
+
+from dbus import DBusException
+
+from PyQt4 import uic
+from PyKDE4.kdecore import KCmdLineArgs, KCmdLineOptions, ki18n
+from PyKDE4.kdeui import KApplication, KIcon
+
+program = sys.argv[0]
+if program.startswith('./') or program.startswith('bin/'):
+    sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+    os.environ['USBCREATOR_LOCAL'] = '1'
+
+from usbcreator.frontends.kde.translate import translate
+uic.properties.Properties._string = translate
+from usbcreator.frontends.kde.kde_about import AboutData
+from usbcreator.frontends.kde import KdeFrontend
+from usbcreator.backends.udisks import UDisksBackend
+from usbcreator.misc import sane_path, setup_gettext, setup_logging, text_type
+
+if __name__ == "__main__":
+    """Initialize and launch the application"""
+    sane_path()
+    setup_logging()
+    setup_gettext()
+
+    # Add cmdline options
+    options = KCmdLineOptions()
+    options.add("i").add("iso <img>", ki18n("provide a source image (CD or raw disk) to pre-populate the UI."))
+    options.add("n").add("nopersistent", ki18n("disable persistent setting in the UI"))
+    options.add("allow-system-internal", ki18n("allow writing to system-internal devices"))
+
+    # Initialize KApplication required bits
+    aboutData = AboutData()
+    KCmdLineArgs.init(sys.argv, aboutData)
+    KCmdLineArgs.addCmdLineOptions(options)
+    app = KApplication()
+    app.setWindowIcon(KIcon("usb-creator-kde"))
+    if app.isSessionRestored():
+        sys.exit(1)
+    args = KCmdLineArgs.parsedArgs()
+
+    # Default cmdline arg values
+    img = None
+    persistent = False
+    allow_system_internal = False
+
+    # Test and update passed args
+    if args.isSet("iso"):
+        img = args.getOption("iso")
+    if args.isSet("persistent"):
+        persistent = True
+    if args.isSet("allow-system-internal"):
+        allow_system_internal = True
+
+    try:
+        backend = UDisksBackend(allow_system_internal=allow_system_internal)
+        frontend = KdeFrontend(backend, img, persistent,
+                               allow_system_internal=allow_system_internal)
+    except DBusException as e:
+        # FIXME evand 2009-07-09: Wouldn't service activation pick this up
+        # automatically?
+        # FIXME evand 2009-07-28: Does this really belong this far out?
+        logging.exception('DBus exception:')
+        if e._dbus_error_name == 'org.freedesktop.DBus.Error.ServiceUnknown':
+            message = _('This program needs udisks running in order to'
+                        'properly function.')
+        else:
+            message = _('An error occurred while talking to the udisks '
+                        'service.')
+        KdeFrontend.startup_failure(message)
+        sys.exit(1)
+    except (KeyboardInterrupt, Exception) as e:
+        # TODO evand 2009-05-03: What should we do here to make sure devices are
+        # unmounted, etc?
+        logging.exception('Unhandled exception:')
+        message = _('An unhandled exception occurred:\n%s' % text_type(e))
+        KdeFrontend.startup_failure(message)
+
+    # Properly exit KApplication
+    sys.exit(app.exec_())

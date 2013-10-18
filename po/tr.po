@@ -1,0 +1,540 @@
+# Turkish translation for usb-creator
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the usb-creator package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: usb-creator\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-28 12:46+0000\n"
+"PO-Revision-Date: 2010-04-17 07:23+0000\n"
+"Last-Translator: EsatYuce <yusufesat78@yahoo.com>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2010-05-03 03:20+0000\n"
+"X-Generator: Launchpad (build Unknown)\n"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:1
+msgid "Install the bootloader"
+msgstr "Önyükleyiciyi kur"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:2
+msgid "System policy prevents installing the bootloader"
+msgstr "Sistem ilkeleri önyükleyicinin kurulmasına engel oluyor"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:3
+msgid "Format the device"
+msgstr "Aygıtı biçimlendir"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:4
+msgid "System policy prevents formatting this device"
+msgstr "Sistem ilkeleri bu aygıtın biçimlendirilmesine engel oluyor"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:5
+msgid "Image the device"
+msgstr "Aygıtın görüntüsünü oluştur"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:6
+msgid "System policy prevents writing a disk image to this device"
+msgstr "Sistem ilkeleri bu aygıta disk görüntüsü yazılmasına engel oluyor"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:7
+msgid "Mount a device"
+msgstr "Aygıtı bağla"
+
+#: .././dbus/com.ubuntu.usbcreator.policy.in.h:8
+msgid "System policy prevents mounting"
+msgstr "Sistem ilkeleri aygıt bağlamaya engel oluyor"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:1
+#: .././desktop/usb-creator-kde.desktop.in.h:1
+msgid "Startup Disk Creator"
+msgstr "Başlangıç Diski Oluşturucu"
+
+#: .././desktop/usb-creator-gtk.desktop.in.h:2
+#: .././desktop/usb-creator-kde.desktop.in.h:2
+msgid "Create a startup disk using a CD or disc image"
+msgstr "Bir CD ya da disk kalıbı kullanarak bir başlangıç diski oluşturun"
+
+#. set title of progress window (same as gtk frontend)
+#: .././usbcreator/frontends/kde/frontend.py:189
+#: .././usbcreator/frontends/winui/install_window.py:23
+#: .././gui/usbcreator-gtk.ui.h:8
+msgid "Installing"
+msgstr "Kuruluyor"
+
+#. TODO evand 2009-07-28: Better error message.
+#: .././usbcreator/frontends/kde/frontend.py:217
+#: .././usbcreator/frontends/gtk/frontend.py:730
+#: .././usbcreator/frontends/winui/frontend.py:87
+msgid "Installation failed."
+msgstr "Kurulum başarısız."
+
+#: .././usbcreator/frontends/kde/frontend.py:379
+#: .././usbcreator/frontends/gtk/frontend.py:471
+msgid "The device is not large enough to hold this image."
+msgstr "Aygıt, bu görüntüyü kapsayacak kadar geniş değil."
+
+#: .././usbcreator/frontends/kde/frontend.py:381
+#: .././usbcreator/frontends/gtk/frontend.py:473
+msgid "There is not enough free space for this image."
+msgstr "Bu görüntü için yeterli boş alan yok."
+
+#: .././usbcreator/frontends/kde/frontend.py:384
+msgid "The device needs to be formatted for use."
+msgstr ""
+
+#. TODO evand 2009-07-28: The list itself needs to be moved into the
+#. base frontend.
+#. To be displayed as a list of file type filters.
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:623
+#: .././usbcreator/frontends/winui/frontend.py:181
+msgid "CD Images"
+msgstr "CD Görüntüleri"
+
+#: .././usbcreator/frontends/kde/frontend.py:417
+#: .././usbcreator/frontends/gtk/frontend.py:624
+#: .././usbcreator/frontends/winui/frontend.py:182
+msgid "Disk Images"
+msgstr "Disk Görüntüleri"
+
+#: .././usbcreator/frontends/kde/frontend.py:433
+msgid "Starting up"
+msgstr "Başlatılıyor"
+
+#: .././usbcreator/frontends/kde/frontend.py:442
+msgid "You must select both source image and target device first."
+msgstr "Öncelikle kaynak kalıp dosyasını ve hedef aygıtı seçmelisiniz."
+
+#: .././usbcreator/frontends/kde/frontend.py:469
+#: .././usbcreator/frontends/winui/frontend.py:73
+msgid ""
+"The installation is complete.  You may now reboot your computer with this "
+"device inserted to try or install Ubuntu."
+msgstr ""
+"Kurulum tamamlandı. Şimdi bilgisayarınızı bu disk takılıyken yeniden "
+"başlatabilir ve Ubuntu'yu deneyebilir veya yükleyebilirsiniz."
+
+#: .././usbcreator/frontends/kde/frontend.py:480
+msgid "Retry?"
+msgstr "Tekrar dene?"
+
+#: .././usbcreator/frontends/kde/frontend.py:492
+#: .././gui/usbcreator-gtk.ui.h:9
+msgid "Quit the installation?"
+msgstr "Yüklemeden çıkılsın mı ?"
+
+#: .././usbcreator/frontends/kde/frontend.py:493
+#: .././gui/usbcreator-gtk.ui.h:10
+msgid "Do you really want to quit the installation now?"
+msgstr "Yükleme işleminden vazgeçmek istiyor musunuz?"
+
+#. TODO information about the device we're about to format.
+#: .././usbcreator/frontends/kde/frontend.py:524
+#: .././usbcreator/frontends/gtk/frontend.py:791
+msgid "Are you sure you want to erase the entire disk?"
+msgstr "Tüm diski silmek istediğinizden emin misiniz?"
+
+#: .././usbcreator/frontends/gtk/frontend.py:133
+#, fuzzy
+msgid "To run Ubuntu on a portable device, it needs to be set up first."
+msgstr ""
+"Kaldırılabilir bir diskten Ubuntu'yu denemek ya da kurmak için, onu  bir "
+"başlangıç diski olarak düzenlemek gerekir."
+
+#: .././usbcreator/frontends/gtk/frontend.py:134
+#, fuzzy
+msgid "Source disc image (.img):"
+msgstr "Kaynak disk kalıbı (.iso) ya da CD:"
+
+#: .././usbcreator/frontends/gtk/frontend.py:135
+#, fuzzy
+msgid "Target device:"
+msgstr "Aygıtın görüntüsünü oluştur"
+
+#: .././usbcreator/frontends/gtk/frontend.py:136
+msgid "Ubuntu Core Installer"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:137
+#, fuzzy
+msgid "Install Ubuntu Core"
+msgstr "Kurulum Tamamlandı"
+
+#: .././usbcreator/frontends/gtk/frontend.py:138
+msgid "Legal"
+msgstr ""
+
+#: .././usbcreator/frontends/gtk/frontend.py:369
+msgid "CD-Drive/Image"
+msgstr "CD-Sürücü/Kalıp"
+
+#: .././usbcreator/frontends/gtk/frontend.py:371
+#: .././usbcreator/frontends/winui/main_dialog.py:27
+msgid "Image"
+msgstr "Görüntü"
+
+#: .././usbcreator/frontends/gtk/frontend.py:385
+#: .././usbcreator/frontends/winui/main_dialog.py:28
+msgid "OS Version"
+msgstr "İşletim Sistemi Sürümü"
+
+#: .././usbcreator/frontends/gtk/frontend.py:395
+#: .././usbcreator/frontends/winui/main_dialog.py:29
+msgid "Size"
+msgstr "Boyut"
+
+#: .././usbcreator/frontends/gtk/frontend.py:508
+#: .././usbcreator/frontends/gtk/frontend.py:796
+#, fuzzy
+msgid "Erasing..."
+msgstr "Tamamlanıyor..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:513
+#: .././gui/usbcreator-gtk.ui.h:16
+msgid "Erase Disk"
+msgstr "Diski Sil"
+
+#: .././usbcreator/frontends/gtk/frontend.py:567
+#: .././usbcreator/frontends/winui/main_dialog.py:36
+msgid "Device"
+msgstr "Aygıt"
+
+#: .././usbcreator/frontends/gtk/frontend.py:584
+#: .././usbcreator/frontends/winui/main_dialog.py:37
+msgid "Label"
+msgstr "Etiket"
+
+#: .././usbcreator/frontends/gtk/frontend.py:594
+#: .././usbcreator/frontends/winui/main_dialog.py:38
+msgid "Capacity"
+msgstr "Kapasite"
+
+#: .././usbcreator/frontends/gtk/frontend.py:604
+#: .././usbcreator/frontends/winui/main_dialog.py:39
+msgid "Free Space"
+msgstr "Boş Alan"
+
+#. TODO evand 2009-07-31: Make these the default values in the
+#. GtkBuilder file.
+#: .././usbcreator/frontends/gtk/frontend.py:645
+#: .././usbcreator/frontends/winui/install_window.py:28
+msgid "Starting up..."
+msgstr "Başlatılıyor..."
+
+#: .././usbcreator/frontends/gtk/frontend.py:674
+#: .././usbcreator/frontends/winui/frontend.py:155
+#, python-format
+msgid "%d%% complete (%dm%ss remaining)"
+msgstr "%%%d tamamlandı (kalan süre %dm%ss)"
+
+#: .././usbcreator/frontends/gtk/frontend.py:678
+#: .././usbcreator/frontends/winui/frontend.py:159
+#, python-format
+msgid "%d%% complete"
+msgstr "%%%d tamamlandı"
+
+#: .././usbcreator/frontends/gtk/frontend.py:758
+#, fuzzy
+msgid "Installation is complete. Your device is rebooting into Ubuntu Core."
+msgstr ""
+"Kurulum tamamlandı. Şimdi bilgisayarınızı bu disk takılıyken yeniden "
+"başlatabilir ve Ubuntu'yu deneyebilir veya yükleyebilirsiniz."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:21
+#: .././gui/usbcreator-gtk.ui.h:12
+msgid ""
+"To try or install Ubuntu from a removable disk, it needs to be set up as a "
+"startup disk."
+msgstr ""
+"Kaldırılabilir bir diskten Ubuntu'yu denemek ya da kurmak için, onu  bir "
+"başlangıç diski olarak düzenlemek gerekir."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:24
+#: .././gui/usbcreator-gtk.ui.h:13
+msgid "Source disc image (.iso) or CD:"
+msgstr "Kaynak disk kalıbı (.iso) ya da CD:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:32
+#: .././gui/usbcreator-gtk.ui.h:14
+msgid "Other..."
+msgstr "Diğer..."
+
+#: .././usbcreator/frontends/winui/main_dialog.py:34
+msgid "Removable disk to use:"
+msgstr "Kullanılacak çıkarılabilir disk:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:42
+#: .././gui/usbcreator-gtk.ui.h:17
+msgid "When starting up from this disk, documents and settings will be:"
+msgstr "Bu diskten başlatıldığında, belgeler ve ayarlar:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:45
+msgid "Stored in reserved space"
+msgstr "Ayrılmış alanda saklanır"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:46
+#: .././gui/usbcreator-gtk.ui.h:19
+msgid "How much:"
+msgstr "Boyut:"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:52
+#: .././gui/usbcreator-gtk.ui.h:20
+msgid "Discarded on shutdown, unless you save them elsewhere"
+msgstr "Başka yerde kaydetmedikçe sistem kapatılınca silinecektir"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:56
+msgid "Quit"
+msgstr "Çık"
+
+#: .././usbcreator/frontends/winui/main_dialog.py:58
+msgid "Make startup disk"
+msgstr "Açılış diski yap"
+
+#: .././usbcreator/frontends/winui/install_window.py:32
+msgid "&Cancel"
+msgstr "İ&ptal"
+
+#: .././usbcreator/frontends/winui/frontend.py:76
+msgid "Installation complete"
+msgstr "Kurulum tamamlandı"
+
+#: .././usbcreator/frontends/winui/frontend.py:82
+msgid "Installation failed"
+msgstr "Kurulum başarısız oldu"
+
+#: .././usbcreator/frontends/winui/frontend.py:183
+msgid "All"
+msgstr "Tümü"
+
+#: .././usbcreator/frontends/winui/frontend.py:193
+#: .././gui/usbcreator-gtk.ui.h:11
+msgid "Make Startup Disk"
+msgstr "Başlangıç Diski Oluştur"
+
+#: .././usbcreator/install.py:140
+#, python-format
+msgid "The extension \"%s\" is not supported."
+msgstr "\"%s\" uzantısı desteklenmiyor."
+
+#: .././usbcreator/install.py:145
+#, python-format
+msgid "Missing matching \"%s\" for source image %s."
+msgstr ""
+
+#: .././usbcreator/install.py:161
+#, python-format
+msgid ""
+"An uncaught exception was raised:\n"
+"%s"
+msgstr ""
+"Çözülemeyen kural dışı bir durum belirdi:\n"
+"%s"
+
+#: .././usbcreator/install.py:177
+#, python-format
+msgid ""
+"Insufficient free space to write the image:\n"
+"%s\n"
+"\n"
+"(%d MB) > %s (%d MB)"
+msgstr ""
+"Görüntüyü yazmak için yeterli boş alan yok:\n"
+"%s\n"
+"\n"
+"(%d MB) > %s (%d MB)"
+
+#: .././usbcreator/install.py:230
+msgid "Installing the bootloader..."
+msgstr "Önyükleyici kuruluyor..."
+
+#: .././usbcreator/install.py:231
+msgid "Failed to install the bootloader."
+msgstr "Önyükleyici kurulamadı."
+
+#: .././usbcreator/install.py:261
+msgid "Modifying configuration..."
+msgstr "Yapılandırma değiştiriliyor..."
+
+#. Failure here probably means the source was not really an Ubuntu
+#. image and did not have the files we wanted to move, see
+#. <https://bugs.launchpad.net/launchpad-code/+bug/513432>
+#: .././usbcreator/install.py:272
+#, python-format
+msgid ""
+"Could not move syslinux files in \"%s\": %s. Maybe \"%s\" is not an Ubuntu "
+"image?"
+msgstr ""
+"\"%s\": %s deki syslinux dosyalarını taşıyamadı. \"%s\" bir Ubuntu kalıbı "
+"olmayabilir mi?"
+
+#: .././usbcreator/install.py:343
+msgid "Creating a persistence file..."
+msgstr "Devamlılık dosyası oluşturuluyor..."
+
+#: .././usbcreator/install.py:346
+msgid "Creating an ext2 filesystem in the persistence file..."
+msgstr "Devamlılık dosyası içinde ext2 dosya sistemi oluşturuluyor..."
+
+#: .././usbcreator/install.py:358
+msgid "Finishing..."
+msgstr "Tamamlanıyor..."
+
+#. TODO evand 2009-09-02: Disabled until we can find a cross-platform
+#. way of determining dd progress.
+#. self.initialize_progress_thread()
+#: .././usbcreator/install.py:381
+msgid "Writing disk image..."
+msgstr "Disk görüntüsü yazılıyor..."
+
+#: .././usbcreator/install.py:382
+#, python-format
+msgid "Could not write the disk image (%s) to the device (%s)."
+msgstr "Disk görüntüsü (%s), aygıta (%s) yazılamadı."
+
+#: .././usbcreator/install.py:412
+msgid "Erasing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:415
+msgid "Erasing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:418
+msgid "Flashing boot partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:421
+msgid "Flashing user partition..."
+msgstr ""
+
+#: .././usbcreator/install.py:426
+#, fuzzy
+msgid "Rebooting device..."
+msgstr "Dosyalarda siliniyor..."
+
+#. Clear.
+#. Some of the code in this function was copied from Ubiquity's
+#. scripts/install.py
+#: .././usbcreator/install.py:448 .././usbcreator/install.py:561
+msgid "Removing files..."
+msgstr "Dosyalarda siliniyor..."
+
+#: .././usbcreator/install.py:479 .././usbcreator/install.py:584
+msgid "Copying files..."
+msgstr "Dosyalar kopyalanıyor..."
+
+#: .././usbcreator/install.py:508
+msgid "md5 checksums do not match."
+msgstr "md5 sağlama toplamı sonucu eşit değil."
+
+#: .././usbcreator/install.py:537
+#, fuzzy
+msgid "Installing the EFI bootloader..."
+msgstr "Önyükleyici kuruluyor..."
+
+#: .././usbcreator/install.py:538
+#, fuzzy
+msgid "Failed to install the EFI bootloader."
+msgstr "Önyükleyici kurulamadı."
+
+#. TODO evand 2009-07-23: Catch exceptions around the
+#. user removing the flash drive mid-write.  Give the
+#. user the option of selecting the re-inserted disk
+#. from a drop down list and continuing.
+#. TODO evand 2009-07-23: Fail more gracefully.
+#: .././usbcreator/install.py:656
+#, python-format
+msgid "Could not read from %s"
+msgstr "%s kaynağından okunamadı"
+
+#: .././usbcreator/install.py:681
+msgid "Checksums do not match.  Retry?"
+msgstr "Sağlama toplama sonucu eşit değil. Tekrar dene?"
+
+#: .././usbcreator/install.py:685
+msgid "Checksums do not match."
+msgstr "Sağlama toplama sonucu eşit değil."
+
+#: .././gui/usbcreator-gtk.ui.h:1
+msgid "Legal Notice"
+msgstr ""
+
+#: .././gui/usbcreator-gtk.ui.h:2
+msgid "Installation Failed"
+msgstr "Yükleme Başarısız"
+
+#: .././gui/usbcreator-gtk.ui.h:3
+#, fuzzy
+msgid ""
+"The installation failed.  Please see ~/.cache/usb-creator.log for more "
+"details.\n"
+msgstr ""
+"Kurulum başarısız oldu. Daha fazla bilgi için ~/.usbcreator.log dosyasına "
+"bakın.\n"
+
+#: .././gui/usbcreator-gtk.ui.h:5
+msgid "Installation Complete"
+msgstr "Kurulum Tamamlandı"
+
+#: .././gui/usbcreator-gtk.ui.h:6
+#, fuzzy
+msgid "Test Disk"
+msgstr "Diski Sil"
+
+#: .././gui/usbcreator-gtk.ui.h:7
+msgid ""
+"Installation is complete.  You may now run Ubuntu on other computers by "
+"booting them with this drive inserted."
+msgstr ""
+"Kurulum tamamlandı. Artık başka bilgisayarları bu diskten başlatarak Ubuntu "
+"çalıştırabilirsiniz."
+
+#: .././gui/usbcreator-gtk.ui.h:15
+msgid "Disk to use:"
+msgstr "Kullanılacak olan disk:"
+
+#: .././gui/usbcreator-gtk.ui.h:18
+msgid "Stored in reserved extra space"
+msgstr "Ayrılan ek boş alan içine kaydet"
+
+#: .././main.py:37
+msgid "Please run this program as an administrator to continue."
+msgstr "Lütfen devam etmek için bu programı bir yönetici olarak çalıştırın."
+
+#: .././main.py:38
+msgid "Administrator privileges required"
+msgstr "Yönetici yetkileri gerekli"
+
+#: .././main.py:55
+#, python-format
+msgid ""
+"An unhandled exception occurred:\n"
+"%s"
+msgstr ""
+"Çözülemeyen kural dışı bir durum oluştu.\n"
+"%s"
+
+#: .././main.py:56
+msgid "Error"
+msgstr "Hata"
+
+#~ msgid "Please insert a CD or select 'Other...'."
+#~ msgstr "Lütfen CD takın ya da 'Diğer...'den seçin."
+
+#~ msgid "0.0 MB"
+#~ msgstr "0.0 MB"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal"
+
+#~ msgid "Format"
+#~ msgstr "Biçimlendir"
+
+#~ msgid "Make USB Startup Disk"
+#~ msgstr "USB Başlangıç Diski Oluştur"

@@ -1,0 +1,27 @@
+TODO for usb-creator-kde:
+-------------------------------------
+ * Find out why resume from cancel install hangs the creator
+ * Implement icons in treeview similar to gtk frontend (warning, etc)
+   - need gio and get_gnome_drive equivalent functions from commit 205
+
+TODO for usb-creator-win:
+-------------------------
+
+ * Resolve possible redistribution issue with Python for Windows 2.6 mentioned
+   by Agostino Russo.
+ * Improve the icon.  Get the icon working in the title bar.
+ * Include sources for all of the code we're distributing.
+
+General TODO:
+-------------
+
+ * Mac OSX support.  It looks like it requires GPT and a blessed image.  GRUB 2
+   does not support it as of this writing (2009-07-09), which will have to
+   happen first.  We'll also likely move to GRUB 2 at that point, assuming
+   Ubuntu does first.
+ * QA and testing
+   - Successful install does not unmount USB Stick
+   - Format USB stick fails to re-detect the formatted stick (format does not make a valid FS)
+   - Cannot eject CD-ROM (held by root)
+ * Create a backend.base.install class, replace usb-creator/install.py with
+   backend.BACKEND.install.
