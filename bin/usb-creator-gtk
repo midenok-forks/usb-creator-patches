@@ -72,6 +72,7 @@ try:
     frontend = GtkFrontend(
         backend, options.img, options.persistent,
         allow_system_internal=options.allow_system_internal)
+    frontend.__del__()
 except DBusException as e:
     # FIXME evand 2009-07-09: Wouldn't service activation pick this up
     # automatically?

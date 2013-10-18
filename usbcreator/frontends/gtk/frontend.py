@@ -17,6 +17,8 @@ import os
 
 import gettext
 import logging
+import ConfigParser
+
 from gi.repository import GObject
 from gi.repository import GLib
 from gi.repository import Gio
@@ -47,6 +49,32 @@ def thread_wrap(func):
         finally:
             Gdk.threads_leave()
     return wrap
+
+class Config:
+    def __init__(self, frontend):
+        self.file = os.path.expanduser('~/.usb-creator-gtk.ini')
+        self.section = 'images'
+        self.parser = ConfigParser.SafeConfigParser()
+        self.frontend = frontend
+    
+    def read_config(self):
+        p = self.parser
+        p.read(self.file)
+        if p.has_section(self.section):
+            for f in p.items(self.section):
+                self.frontend.backend.add_image(f[1])
+                
+    def write_config(self):
+        p = self.parser
+        s = self.section
+        if p.has_section(s):
+            p.remove_section(s)
+        p.add_section(s)
+        n = 0
+        for image_file in self.frontend.backend.sources.keys():
+            p.set(s, str(n), image_file)
+        with open(self.file, 'wb') as configfile:
+            p.write(configfile)
 
 class GtkFrontend(Frontend):
     @classmethod
@@ -123,7 +151,7 @@ class GtkFrontend(Frontend):
         self.backend.retry_cb = self.retry
         self.backend.target_changed_cb = self.update_target
         self.backend.format_failed_cb = self.format_failed
-
+        
         # Pulse state.
         self.pulsing = False
 
@@ -174,7 +202,9 @@ class GtkFrontend(Frontend):
         if not persistent:
             self.persist_disabled.set_active(True)
             self.persist_vbox.hide()
-
+        
+        self.config = Config(self)
+        self.config.read_config()
         self.window.show()
         selection = self.source_treeview.get_selection()
         selection.connect('changed', self.selection_changed_source)
@@ -191,6 +221,9 @@ class GtkFrontend(Frontend):
         except KeyboardInterrupt:
             self.quit()
         Gdk.threads_leave()
+    
+    def __del__(self):
+        self.config.write_config()
 
     def add_timeout(self, interval, func, *args):
         '''Add a new timer for function 'func' with optional arguments. Wraps a

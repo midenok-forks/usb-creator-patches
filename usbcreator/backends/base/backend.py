@@ -23,10 +23,6 @@ class Backend:
         filename = os.path.abspath(os.path.expanduser(filename))
         if not os.path.isfile(filename):
             return
-        if filename in self.sources:
-            logging.warn('Source already added.')
-            # TODO evand 2009-07-27: Scroll to source and select.
-            return
 
         extension = os.path.splitext(filename)[1]
         # TODO evand 2009-07-25: What's the equivalent of `file` on Windows?
