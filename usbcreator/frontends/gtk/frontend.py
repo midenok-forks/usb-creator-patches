@@ -228,7 +228,7 @@ class GtkFrontend(Frontend):
                 self.icons[source] = icon
             if not l and name:
                 self.names[source] = name
-
+    
     def add_target(self, target):
         logging.debug('add_target: %s' % str(target))
         # use str() here, since it is originally a DBus.ObjectPath object
@@ -792,10 +792,12 @@ class GtkFrontend(Frontend):
         if not iterator:
             return
         udi = model[iterator][0]
+        dev = self.backend.targets[udi]['device']
         d = Gtk.MessageDialog(parent=self.window, flags=Gtk.DialogFlags.MODAL,
                 message_type=Gtk.MessageType.QUESTION, buttons=Gtk.ButtonsType.YES_NO)
         # TODO information about the device we're about to format.
-        d.set_markup(_('Are you sure you want to erase the entire disk?'))
+        d.set_markup(_('Are you sure you want to erase the entire disk?')
+                     + "\n\n" + self.pretty_names[udi])
         response = d.run()
         d.destroy()
         if response == Gtk.ResponseType.YES:
