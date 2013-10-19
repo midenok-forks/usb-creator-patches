@@ -778,6 +778,8 @@ class GtkFrontend(Frontend):
 
     @thread_wrap
     def format_failed(self, message):
+        self.selection_changed_source(self.source_treeview.get_selection())
+
         # TODO sort through error types (message.get_dbus_name()) in backend,
         # individual functions in frontend for each error type.
         d = Gtk.MessageDialog(parent=self.window, flags=Gtk.DialogFlags.MODAL,
