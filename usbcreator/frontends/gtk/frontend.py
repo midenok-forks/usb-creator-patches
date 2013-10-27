@@ -213,7 +213,7 @@ class GtkFrontend(Frontend):
     def add_source(self, source):
         logging.debug('add_source: %s' % str(source))
         _append_to_list_and_select(self.source_treeview, [source],
-            force_selection=False)
+            force_selection=True)
 
         # XXX evand 2009-09-17: Find a label and icon for the device, if we
         # don't already have one.  This will go away when the code for the
