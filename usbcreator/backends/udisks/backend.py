@@ -285,6 +285,7 @@ class UDisksBackend(Backend):
                 self.formatting.append(device)
                 self.targets[device]['formatting'] = True
             self.helper.Format(dev, self.allow_system_internal,
+                    timeout=misc.MAX_DBUS_TIMEOUT,
                     # There must be a better way...
                     reply_handler=lambda: self.format_ended(device),
                     error_handler=lambda x: self.format_failed(x, device))
