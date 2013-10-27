@@ -19,7 +19,6 @@ class Config:
     def __init__(self, backend):
         self.file = os.path.expanduser('~/.usb-creator.ini')
         self.folder = os.path.expanduser('~')
-        self.section = 'images'
         self.parser = configparser.SafeConfigParser()
         self.backend = backend
 
@@ -27,24 +26,34 @@ class Config:
         p = self.parser
         p.read(self.file)
         try:
-            folder = p.get('DEFAULT', 'folder')
+            folder = p.get('global', 'folder')
             self.folder = folder
         except:
             python_govno = 'Yes!'
-        if p.has_section(self.section):
-            for f in p.items(self.section):
+        source = 1
+        s = 'images'
+        if p.has_section(s):
+            for f in p.items(s):
                 self.backend.add_image(f[1])
+                if source:
+                    self.backend.set_current_source(f[1])
+                    source = 0
 
     def save(self):
         p = self.parser
-        p.set('DEFAULT', 'folder', self.folder)
-        s = self.section
+        s = 'global'
+        if p.has_section(s):
+            p.remove_section(s)
+        p.add_section(s)
+        p.set(s, 'folder', self.folder)
+        s = 'images'
         if p.has_section(s):
             p.remove_section(s)
         p.add_section(s)
         n = 0
         for image_file in self.backend.sources.keys():
             p.set(s, str(n), image_file)
+            n = n + 1
         with open(self.file, 'w') as configfile:
             p.write(configfile)
 
