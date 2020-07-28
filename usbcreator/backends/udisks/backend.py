@@ -144,7 +144,7 @@ class UDisksBackend(Backend):
             status = misc.NEED_FORMAT
         label = get('id-label')
         logging.debug('id-label: %s' % label)
-        parent = get('partition-slave')
+        parent = get('partition-subordinate')
         if fstype == 'vfat' and not get('device-is-mounted'):
             parent_i = self.bus.get_object(DISKS_IFACE, parent)
             parent_i.Get(parent, 'device-file', dbus_interface=PROPS_IFACE)
