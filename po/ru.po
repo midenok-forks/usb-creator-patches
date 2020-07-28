@@ -505,7 +505,7 @@ msgstr "Сохранены в выделенном дисковом простр
 
 #: .././main.py:37
 msgid "Please run this program as an administrator to continue."
-msgstr "Эту программу нухно запускать с правами администратора."
+msgstr "Эту программу нужно запускать с правами администратора."
 
 #: .././main.py:38
 msgid "Administrator privileges required"
